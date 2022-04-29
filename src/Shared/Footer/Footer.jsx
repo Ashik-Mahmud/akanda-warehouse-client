@@ -8,7 +8,7 @@ const Footer = () => {
     <FooterContainer className="bg-gray-700">
       <div className="footer-upper p-8 bg-gray-100">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center gap-3 sm:justify-between flex-wrap ">
             <h1 className="text-2xl">Get ready our support team 24/7.</h1>
             <button className="transition-all px-6 py-4 bg-green-400 text-white rounded-md flex items-center gap-2 active:translate-y-1">
               {" "}
@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto pt-16">
-        <div className="footer-container flex justify-between">
+        <div className="footer-container flex justify-center text-center sm:text-left sm:justify-between flex-wrap gap-5">
           <div className="footer-content">
             <Link
               to="/"
@@ -102,7 +102,7 @@ const Footer = () => {
               <li>
                 <Link to="/">
                   <FaEnvelope />
-                  Email
+                  Email: ashikmahmud@gmail.com
                 </Link>
               </li>
             </ul>
@@ -128,6 +128,11 @@ const FooterContainer = styled.footer`
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
+      @media (max-width: 500px) {
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
       li {
         position: relative;
         display: flex;

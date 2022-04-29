@@ -9,14 +9,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const Hero = () => {
   return (
-    <HeroContainer>
+    <HeroContainer className="bg-slate-50">
       <div className="container">
-        <div className="hero-content py-40 flex justify-between items-center">
+        <div className="hero-content py-40 flex justify-between items-center ">
           <div className="hero-text w-1/2 flex flex-col gap-3">
             <span className="text-xl">We will give you Brand Products</span>
-            <h1 className="text-6xl  font-semibold">
-              Best Product <br />{" "}
-              <span className="text-green-500">Less prices</span>
+            <h1 className="text-5xl leading-tight  font-semibold">
+              Get your Best Product{" "}
+              <span className="text-green-500">Wholesale prices</span>
             </h1>
             <p className="text-gray-500 leading-7 my-4">
               Welcome to the akanda warehouse! here you will buy electronics
@@ -162,8 +162,8 @@ const Hero = () => {
 const HeroContainer = styled.section`
   position: relative;
   .swiper {
-    width: 320px;
-    height: 400px;
+    width: 400px;
+    height: 450px;
   }
 
   .swiper-slide {
@@ -173,7 +173,7 @@ const HeroContainer = styled.section`
     border-radius: 5px;
     padding: 1rem;
     .image {
-      height: 250px;
+      height: 300px;
       width: 100%;
       border: 1px solid #ccc;
       border-radius: 5px;

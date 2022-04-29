@@ -23,6 +23,14 @@
 body {
   font-family: var(--montserrat);
   font-size: 16px;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.822),
+      rgba(255, 255, 255, 0.827)
+    ),
+    url(https://c.neh.tw/thumb/f/720/f774c044d62a48bca578.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 img {
   max-width: 100%;

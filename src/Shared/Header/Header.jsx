@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 const Header = () => {
   const [menu, setMenu] = useState(false);
-  const [isAvatar, setIsAvatar] = useState(false);
+
   return (
     <HeaderContainer className="py-6 shadow-sm">
       <div className="container mx-auto">

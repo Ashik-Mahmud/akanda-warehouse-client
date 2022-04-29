@@ -10,9 +10,9 @@ const Home = () => {
     <section id="home">
       <Hero />
       <ProductItems />
-      <Reviews />
       <Teams />
       <CallToAction />
+      <Reviews />
       <Company />
     </section>
   );

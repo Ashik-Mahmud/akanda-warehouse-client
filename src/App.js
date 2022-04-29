@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login/Login';
 import SignUp from './Pages/Login/SignUp/SignUp';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
 import MyItems from './Pages/MyItems/MyItems';
+import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Shared/Footer/Footer';
 import Header from './Shared/Header/Header';
 function App() {
@@ -24,6 +25,9 @@ function App() {
         {/* protected routes  */}
         <Route path='/manage-products' element={<ManageProducts />} />
         <Route path='/my-items' element={<MyItems />} />
+
+        {/* not found route  */}
+        <Route path='*' element={<NotFound />} />
     </Routes>
      <Footer />
     </>

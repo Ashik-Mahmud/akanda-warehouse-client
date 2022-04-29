@@ -34,3 +34,8 @@ a {
 li {
   list-style: none;
 }
+
+/* custom classes  */
+.font-poppins {
+  font-family: var(--poppins);
+}

@@ -40,6 +40,6 @@ li {
   font-family: var(--poppins);
 }
 .container {
-  max-width: min(100% - 2rem, 1200px) !important;
+  max-width: min(100% - 2rem, 1270px) !important;
   margin-inline: auto !important;
 }

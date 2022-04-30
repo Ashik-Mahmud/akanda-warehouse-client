@@ -5,17 +5,21 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const navigate = useNavigate();
+
   return (
     <LoginContainer className="grid place-items-center min-h-[70vh]">
-      <div className="login-wrapper flex w-2/4 items-stretch gap-10 shadow-sm border">
-        <div className="image bg-white grid place-items-center">
+      <div className="login-wrapper  rounded flex flex-col md:flex-row w-full py-5 md:py-0  md:w-full lg:w-2/4 items-stretch gap-10 shadow-sm border">
+        <div className="image bg-white grid place-items-center order-2 md:order-1">
           <img
             width={500}
             src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000"
             alt="login"
           />
         </div>
-        <form action="" className="form-wrapper w-2/5 py-10">
+        <form
+          action=""
+          className="form-wrapper w-full md:w-2/5 px-10  py-10 order-1 md:order-2 "
+        >
           <h3 className="text-3xl mb-3 font-medium font-poppins">
             Login into <span className="text-green-400">Account</span>
           </h3>

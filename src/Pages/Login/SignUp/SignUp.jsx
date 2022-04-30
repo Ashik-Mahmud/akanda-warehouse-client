@@ -5,16 +5,19 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 const SignUp = () => {
   const navigate = useNavigate();
   return (
-    <section className="signUp grid place-items-center min-h-screen">
-      <div className="signUp-wrapper w-3/5 flex items-stretch  border shadow-sm rounded">
-        <div className="reg-image grid place-items-center bg-white w-1/2 border-r border-r-gray-100">
+    <section className="signUp grid place-items-center min-h-screen my-5">
+      <div className="signUp-wrapper md:w-full lg:w-3/5 flex flex-col md:flex-row items-stretch  border shadow-sm rounded">
+        <div className="reg-image grid place-items-center order-2 md:order-1 bg-white  w-full md:w-1/2 border-r border-r-gray-100">
           <img
             src="https://www.kashiganga.com/images/man.jpg"
             alt="reg"
             width={500}
           />
         </div>
-        <form action="" className="form-wrapper w-1/2 p-10 px-14">
+        <form
+          action=""
+          className="form-wrapper w-full md:w-1/2 p-10 px-14 order-1 md:order-2"
+        >
           <h3 className="text-2xl my-4 font-poppins font-medium">
             Sign Up into <span className="text-green-400">Account</span>
           </h3>

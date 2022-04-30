@@ -11,21 +11,21 @@ const Hero = () => {
   return (
     <HeroContainer className="bg-slate-50">
       <div className="container">
-        <div className="hero-content py-40 flex flex-col md:flex-row md:justify-between items-center ">
+        <div className="hero-content py-20 sm:py-40 flex flex-col md:flex-row md:justify-between items-center ">
           <div className="hero-text w-full text-center md:text-left mb-16 md:w-1/2 flex flex-col gap-3">
             <span className="text-xl">We will give you Brand Products</span>
-            <h1 className="text-4xl md:text-5xl leading-tight  font-semibold">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl leading-tight  font-semibold">
               Get your Best Product{" "}
               <span className="text-green-500">Wholesale prices</span>
             </h1>
-            <p className="text-gray-500 leading-7 my-4">
+            <p className="text-gray-500 leading-7 my-4 text-justify">
               Welcome to the akanda warehouse! here you will buy electronics
               products with value for money and we always give our customer
               latest and brand products and we import our products from canada.
               If you have interesting to buy our products wholesale money. you
               do it.
             </p>
-            <div className="btn-groups flex justify-center md:justify-start items-center gap-3">
+            <div className="btn-groups flex flex-wrap justify-center md:justify-start items-center gap-3">
               <button className="bg-green-400 px-6 py-3 rounded text-white active:scale-95 transition-all">
                 Best Selling
               </button>
@@ -165,7 +165,13 @@ const HeroContainer = styled.section`
     width: 400px;
     height: 450px;
     @media (max-width: 500px) {
-      width: 100%;
+      width: 200px;
+      height: auto;
+      .swiper-slide {
+        .image {
+          height: 160px;
+        }
+      }
     }
   }
 

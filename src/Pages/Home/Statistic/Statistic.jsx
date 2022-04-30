@@ -2,7 +2,7 @@ import React from "react";
 import CountUp from "react-countup";
 const Statistic = () => {
   return (
-    <div className="p-10 md:p-20">
+    <div className="py-10 md:p-20">
       <div className="container">
         <div className="statistic flex flex-col md:flex-row flex-wrap gap-6 items-center justify-between">
           <div className="text-center">

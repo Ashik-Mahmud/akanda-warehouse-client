@@ -85,15 +85,17 @@ const Header = () => {
 
           {isAuth && (
             <div className="profile flex items-center">
-              <div className="avatar border-4 border-slate-300 rounded-full overflow-hidden">
+              <div className="avatar border-4 border-slate-300 w-11 h-11 grid place-items-center text-2xl font-semibold rounded-full overflow-hidden">
                 {auth?.currentUser?.photoURL ? (
                   <img
                     width={40}
                     src={auth?.currentUser?.photoURL}
                     alt="avatar"
                   />
-                ) : (
+                ) : auth?.currentUser?.displayName ? (
                   auth?.currentUser?.displayName?.slice(0, 1)
+                ) : (
+                  "N"
                 )}
               </div>
               <div className="details flex items-center gap-2">

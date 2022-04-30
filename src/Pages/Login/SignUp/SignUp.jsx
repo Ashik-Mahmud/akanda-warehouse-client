@@ -1,6 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../App";
+import { auth } from "../../../Firebase/Firebase.config";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
@@ -15,6 +18,46 @@ const SignUp = () => {
     }
   }, [isAuth, navigate, from]);
 
+  /*  Handle Sign Up User */
+  const [inputSignUp, setInputSignUp] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleSignUpForm = async (event) => {
+    event.preventDefault();
+    /* validation of */
+    if (!inputSignUp?.name) return toast.error(`Name field is required.`);
+    if (!inputSignUp?.email) return toast.error(`Email field is required.`);
+    if (!inputSignUp?.password)
+      return toast.error(`Password field is required.`);
+    if (!inputSignUp?.confirmPassword)
+      return toast.error(`Confirm Password field is required.`);
+    if (inputSignUp?.password !== inputSignUp?.confirmPassword)
+      return toast.error(`Password does't match.`);
+
+    await createUserWithEmailAndPassword(
+      auth,
+      inputSignUp.email,
+      inputSignUp.password
+    )
+      .then((res) => {
+        if (res) {
+          updateProfile(auth?.currentUser, {
+            displayName: inputSignUp?.name,
+          }).then(() => {
+            toast.success(`User Creation & Login successfully done`);
+            navigate(from, { replace: true });
+          });
+        }
+      })
+      .catch((err) => {
+        toast.error(err.message.split(":")[1]);
+      });
+  };
+
   return (
     <section className="signUp grid place-items-center min-h-screen my-5">
       <div className="signUp-wrapper md:w-full lg:w-3/5 flex flex-col md:flex-row items-stretch  border shadow-sm rounded">
@@ -27,6 +70,7 @@ const SignUp = () => {
         </div>
         <form
           action=""
+          onSubmit={handleSignUpForm}
           className="form-wrapper w-full md:w-1/2 p-10 px-14 order-1 md:order-2"
         >
           <h3 className="text-2xl my-4 font-poppins font-medium">
@@ -42,6 +86,9 @@ const SignUp = () => {
               name="name"
               id="name"
               className="w-full p-3 outline-none border rounded-sm my-1"
+              onChange={(event) =>
+                setInputSignUp({ ...inputSignUp, name: event.target.value })
+              }
             />
           </div>
           <div className="input-group mb-2">
@@ -54,6 +101,9 @@ const SignUp = () => {
               name="email"
               id="email"
               className="w-full p-3 outline-none border rounded-sm my-1"
+              onChange={(event) =>
+                setInputSignUp({ ...inputSignUp, email: event.target.value })
+              }
             />
           </div>
           <div className="input-group mb-2">
@@ -66,6 +116,9 @@ const SignUp = () => {
               name="password"
               id="password"
               className="w-full p-3 outline-none border rounded-sm my-1"
+              onChange={(event) =>
+                setInputSignUp({ ...inputSignUp, password: event.target.value })
+              }
             />
           </div>
           <div className="input-group mb-2">
@@ -78,6 +131,12 @@ const SignUp = () => {
               name="confirm-password"
               id="confirm-password"
               className="w-full p-3 outline-none border rounded-sm my-1"
+              onChange={(event) =>
+                setInputSignUp({
+                  ...inputSignUp,
+                  confirmPassword: event.target.value,
+                })
+              }
             />
           </div>
           <div className="input-group">

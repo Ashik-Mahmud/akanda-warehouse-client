@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../App";
 import { auth } from "../../../Firebase/Firebase.config";
+import Token from "../../../Helpers/Token";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
@@ -44,14 +45,13 @@ const SignUp = () => {
       inputSignUp.password
     )
       .then((res) => {
-        if (res) {
-          updateProfile(auth?.currentUser, {
-            displayName: inputSignUp?.name,
-          }).then(() => {
-            toast.success(`User Creation & Login successfully done`);
-            navigate(from, { replace: true });
-          });
-        }
+        updateProfile(auth?.currentUser, {
+          displayName: inputSignUp?.name,
+        }).then(() => {
+          toast.success(`User Creation & Login successfully done`);
+          navigate(from, { replace: true });
+        });
+        Token(auth?.currentUser?.uid);
       })
       .catch((err) => {
         toast.error(err.message.split(":")[1]);

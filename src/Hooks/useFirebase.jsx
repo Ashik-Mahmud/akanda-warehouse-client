@@ -2,6 +2,7 @@ import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { auth } from "../Firebase/Firebase.config";
+import Token from "../Helpers/Token";
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
@@ -13,6 +14,7 @@ const useFirebase = () => {
         setUser(res);
         setLoading(true);
         toast.success("Sign In successfully done.");
+        Token(auth?.currentUser?.uid);
       })
       .catch((err) => {
         toast.error(err.message.split(":")[1]);

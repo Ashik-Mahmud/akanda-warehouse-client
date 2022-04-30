@@ -8,14 +8,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../../../App";
 import { auth } from "../../../Firebase/Firebase.config";
+import Token from "../../../Helpers/Token";
 import SocialLogin from "../SocialLogin/SocialLogin";
-
 const Login = () => {
   /* if user has so it's redirect on home or desire page */
   const { isAuth } = useContext(AppContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+
   useEffect(() => {
     if (isAuth) {
       navigate(from, { replace: true });
@@ -45,6 +46,7 @@ const Login = () => {
       .then((res) => {
         toast.success(`Sign In successfully done.`);
         navigate(from, { replace: true });
+        Token(auth?.currentUser?.uid);
       })
       .catch((err) => {
         toast.error(err.message.split(":")[1]);

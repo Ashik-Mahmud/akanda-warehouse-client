@@ -19,6 +19,7 @@ import Header from './Shared/Header/Header';
 export const AppContext = createContext(null)
 function App() {
     const {user, isAuth} = useFirebase();
+   
   return (
     <>
     <Toaster />

@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
+  const navigate = useNavigate();
   return (
     <div className="p-2 shadow rounded relative">
       <div className="badge absolute top-1 right-1 bg-teal-500 text-sm rounded-full text-white px-2 py-1 ">
@@ -25,7 +27,10 @@ const Product = () => {
           </p>
         </div>
         <div className="flex items-start gap-2 justify-between my-3 flex-wrap flex-col">
-          <button className="bg-green-400 px-3 py-2 flex-wrap rounded text-white">
+          <button
+            onClick={() => navigate(`/inventory/4`)}
+            className="bg-green-400 px-3 py-2 flex-wrap rounded text-white"
+          >
             Manage
           </button>
           <p className="text-sm text-gray-400 uppercase">

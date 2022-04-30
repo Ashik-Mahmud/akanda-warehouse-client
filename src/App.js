@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home/Home';
+import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login/Login';
 import SignUp from './Pages/Login/SignUp/SignUp';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
@@ -25,6 +26,7 @@ function App() {
         {/* protected routes  */}
         <Route path='/manage-products' element={<ManageProducts />} />
         <Route path='/my-items' element={<MyItems />} />
+        <Route path='/inventory/:inventoryId' element={<Inventory />} />
 
         {/* not found route  */}
         <Route path='*' element={<NotFound />} />

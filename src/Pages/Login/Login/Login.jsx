@@ -7,8 +7,8 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <LoginContainer className="grid place-items-center min-h-[70vh]">
-      <div className="login-wrapper flex w-2/4 items-center gap-10 shadow-sm border">
-        <div className="image">
+      <div className="login-wrapper flex w-2/4 items-stretch gap-10 shadow-sm border">
+        <div className="image bg-white grid place-items-center">
           <img
             width={500}
             src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000"

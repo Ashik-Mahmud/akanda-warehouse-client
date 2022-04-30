@@ -39,6 +39,6 @@ This is simple electronics warehouse application using reactjs and nodejs and mo
 
 ## Preview Screenshot About this project
 
-[ImageScreenshot](./preview.png)
+![ImageScreenshot](./preview.png)
 
 > Thanks for reach out me on github.

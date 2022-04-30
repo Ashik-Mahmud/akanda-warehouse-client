@@ -63,7 +63,7 @@ const Header = () => {
               {!isAuth && (
                 <li>
                   <Link
-                    className="text-lg flex items-center gap-2 bg-green-500 px-5 py-2 rounded-sm ring-2 ring-offset-2 ring-green-500 text-white"
+                    className="text-lg flex items-center gap-2 bg-sky-500 px-5 py-2 rounded-sm ring-2 ring-offset-2 ring-sky-500 text-white"
                     to="/login"
                   >
                     <AiOutlineLogin /> Login

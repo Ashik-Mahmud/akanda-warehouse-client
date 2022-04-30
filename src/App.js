@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import RequireAuth from './Auth/RequireAuth';
 import useFirebase from './Hooks/useFirebase';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
 import BlogDetails from './Pages/BlogDetails/BlogDetails';
@@ -34,10 +35,10 @@ function App() {
         <Route path='/sign-up' element={<SignUp />} />
 
         {/* protected routes  */}
-        <Route path='/manage-products' element={<ManageProducts />} />
-        <Route path='/my-items' element={<MyItems />} />
-        <Route path='/inventory/:inventoryId' element={<Inventory />} />
-        <Route path='/add-product' element={<AddProduct />} />
+        <Route path='/manage-products' element={<RequireAuth><ManageProducts /></RequireAuth>} />
+        <Route path='/my-items' element={<RequireAuth><MyItems /></RequireAuth>} />
+        <Route path='/inventory/:inventoryId' element={<RequireAuth><Inventory /></RequireAuth>} />
+        <Route path='/add-product' element={<RequireAuth><AddProduct /></RequireAuth>} />
 
         {/* not found route  */}
         <Route path='*' element={<NotFound />} />

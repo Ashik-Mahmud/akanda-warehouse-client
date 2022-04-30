@@ -1,10 +1,20 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { AppContext } from "../../../App";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
+  /* if user has so it's redirect on home or desire page */
+  const { isAuth } = useContext(AppContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (isAuth) {
+      navigate(from, { replace: true });
+    }
+  }, [isAuth, navigate, from]);
 
   return (
     <LoginContainer className="grid place-items-center min-h-[70vh]">

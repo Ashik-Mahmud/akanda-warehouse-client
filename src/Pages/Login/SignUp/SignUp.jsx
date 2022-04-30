@@ -1,9 +1,20 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AppContext } from "../../../App";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  /* if user has so it's redirect on home or desire page */
+  const { isAuth } = useContext(AppContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (isAuth) {
+      navigate(from, { replace: true });
+    }
+  }, [isAuth, navigate, from]);
+
   return (
     <section className="signUp grid place-items-center min-h-screen my-5">
       <div className="signUp-wrapper md:w-full lg:w-3/5 flex flex-col md:flex-row items-stretch  border shadow-sm rounded">

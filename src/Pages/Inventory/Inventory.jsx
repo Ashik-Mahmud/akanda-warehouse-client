@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineStock } from "react-icons/ai";
 import { MdOutlineDeliveryDining } from "react-icons/md";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "./Modal/Modal";
 const Inventory = () => {
@@ -63,6 +64,11 @@ const Inventory = () => {
                 architecto ullam sapiente tenetur quod, omnis voluptatem eius
                 maxime quos aut? Earum voluptatibus cupiditate corrupti.
               </p>
+            </div>
+            <div className="card-footer bg-gray-100 mt-8 p-3 text-right">
+              <Link to="/manage-products" className="text-green-400">
+                Manage All Products.
+              </Link>
             </div>
           </div>
         </div>

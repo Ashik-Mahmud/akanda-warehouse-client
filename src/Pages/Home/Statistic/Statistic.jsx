@@ -1,12 +1,15 @@
 import React from "react";
-
+import CountUp from "react-countup";
 const Statistic = () => {
   return (
     <div className="p-20">
       <div className="container">
         <div className="statistic flex flex-wrap gap-3 items-center justify-between">
           <div className="text-center">
-            <h2 className="num text-8xl text-gray-200 font-bold">120pcs</h2>
+            <h2 className="num text-8xl text-gray-200 font-bold">
+              <CountUp end={120} />
+              pcs
+            </h2>
             <span className="text-gray-500 font-medium uppercase -mt-6 block tracking-wide">
               Until Now
             </span>
@@ -15,7 +18,9 @@ const Statistic = () => {
             </h3>
           </div>
           <div className="text-center">
-            <h2 className="num text-8xl text-gray-200 font-bold">$34K</h2>
+            <h2 className="num text-8xl text-gray-200 font-bold">
+              $<CountUp end={34} />K
+            </h2>
             <span className="text-gray-500 font-medium uppercase -mt-6 block tracking-wide">
               Until Now
             </span>
@@ -24,7 +29,10 @@ const Statistic = () => {
             </h3>
           </div>
           <div className="text-center">
-            <h2 className="num text-8xl text-gray-200 font-bold">345pcs</h2>
+            <h2 className="num text-8xl text-gray-200 font-bold">
+              <CountUp end={345} />
+              pcs
+            </h2>
             <span className="text-gray-500 font-medium uppercase -mt-6 block tracking-wide">
               Until Now
             </span>

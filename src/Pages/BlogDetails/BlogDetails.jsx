@@ -25,13 +25,13 @@ const BlogDetails = () => {
             <div className="details">
               <ul className="meta flex justify-between items-center my-4">
                 <li>
-                  Author - <span className="text-green-400">Ashik Mahmud</span>
+                  Author - <span className="text-sky-500">Ashik Mahmud</span>
                 </li>
                 <li>
-                  Date - <span className="text-green-400">23 Jan, 2022</span>
+                  Date - <span className="text-sky-500">23 Jan, 2022</span>
                 </li>
                 <li>
-                  Category - <span className="text-green-400">Tech</span>
+                  Category - <span className="text-sky-500">Tech</span>
                 </li>
               </ul>
               <p className="leading-7 text-gray-500">

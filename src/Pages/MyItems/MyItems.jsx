@@ -8,7 +8,7 @@ const MyItems = () => {
         <div className="title my-5 p-5 flex flex-col md:flex-row justify-between items-center bg-gray-100">
           <div>
             <h2 className="text-3xl font-semibold">
-              <span className="text-green-400">Ashik Mahmud</span> Items
+              <span className="text-sky-500">Ashik Mahmud</span> Items
             </h2>
             <p>We should get of mine added products.</p>
           </div>
@@ -19,7 +19,7 @@ const MyItems = () => {
               placeholder="Search"
               id="search"
             />
-            <button className="bg-green-400 px-5 text-white">
+            <button className="bg-sky-500 px-5 text-white">
               <BsSearch />
             </button>
           </div>

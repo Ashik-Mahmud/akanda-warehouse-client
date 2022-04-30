@@ -21,7 +21,7 @@ const ProductItems = () => {
           <Product />
         </div>
         <div className="text-right flex justify-end">
-          <button className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-green-400 px-5 py-2 rounded">
+          <button className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-sky-500 px-5 py-2 rounded">
             All Inventories Product <BsBoxArrowDownRight />
           </button>
         </div>

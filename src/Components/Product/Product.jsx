@@ -17,7 +17,7 @@ const Product = () => {
       </div>
       <div className="details p-3">
         <div className="flex justify-between items-center my-1">
-          <span className="text-green-400">4345$</span>
+          <span className="text-sky-500">4345$</span>
           <span className="bg-gray-100 p-2 text-sm">43pcs</span>
         </div>
         <div>
@@ -29,7 +29,7 @@ const Product = () => {
         <div className="flex items-start gap-2 justify-between my-3 flex-wrap flex-col">
           <button
             onClick={() => navigate(`/inventory/4`)}
-            className="bg-green-400 px-3 py-2 flex-wrap rounded text-white"
+            className="bg-sky-500 px-3 py-2 flex-wrap rounded text-white"
           >
             Manage
           </button>

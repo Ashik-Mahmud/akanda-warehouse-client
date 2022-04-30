@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto">
         <nav className="flex justify-between ">
           <Link className="logo flex items-center gap-2" to="/">
-            <FaWarehouse className="text-2xl text-green-400 " />{" "}
+            <FaWarehouse className="text-2xl text-sky-500 " />{" "}
             <span className="text-2xl font-poppins">Akanda</span>
           </Link>
           <menu className="primary-menu flex items-center">

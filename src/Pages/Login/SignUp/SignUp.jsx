@@ -74,7 +74,7 @@ const SignUp = () => {
           className="form-wrapper w-full md:w-1/2 p-10 px-14 order-1 md:order-2"
         >
           <h3 className="text-2xl my-4 font-poppins font-medium">
-            Sign Up into <span className="text-green-400">Account</span>
+            Sign Up into <span className="text-sky-500">Account</span>
           </h3>
           <div className="input-group mb-2">
             <label htmlFor="name" className="mb-2 block">
@@ -140,7 +140,7 @@ const SignUp = () => {
             />
           </div>
           <div className="input-group">
-            <button className="w-full p-4 rounded bg-green-400 text-white my-3">
+            <button className="w-full p-4 rounded bg-sky-500 text-white my-3">
               Sign Up
             </button>
           </div>
@@ -148,7 +148,7 @@ const SignUp = () => {
             Already have an account?{" "}
             <span
               onClick={() => navigate("/login")}
-              className="cursor-pointer text-green-400"
+              className="cursor-pointer text-sky-500"
             >
               Sign In
             </span>

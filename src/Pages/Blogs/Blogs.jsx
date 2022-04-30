@@ -10,7 +10,7 @@ const Blogs = () => {
             <span>read more articles and make your knowledge wide</span>
             <h2 className="text-2xl font-semibold">Read Articles</h2>
           </div>
-          <button className="flex gap-1 p-3 items-center bg-green-400 rounded active:scale-95 transition-all text-white">
+          <button className="flex gap-1 p-3 items-center bg-sky-500 rounded active:scale-95 transition-all text-white">
             {" "}
             <BsPlus className="text-white text-2xl" /> Add Blogs
           </button>

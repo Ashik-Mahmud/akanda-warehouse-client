@@ -14,7 +14,7 @@ const ManageProducts = () => {
           </div>
           <button
             onClick={() => navigate("/add-product")}
-            className="flex gap-1 p-3 items-center bg-green-400 rounded active:scale-95 transition-all text-white"
+            className="flex gap-1 p-3 items-center bg-sky-500 rounded active:scale-95 transition-all text-white"
           >
             {" "}
             <BsPlus className="text-white text-2xl" /> Add Product
@@ -50,7 +50,7 @@ const ManageProducts = () => {
                   />
                 </td>
                 <td>
-                  <span className="text-green-400">Active</span>
+                  <span className="text-sky-500">Active</span>
                 </td>
                 <td>
                   <button className="bg-red-400 text-white p-2">
@@ -73,7 +73,7 @@ const ManageProducts = () => {
                   />
                 </td>
                 <td>
-                  <span className="text-green-400">Active</span>
+                  <span className="text-sky-500">Active</span>
                 </td>
                 <td>
                   <button className="bg-red-400 text-white p-2">
@@ -96,7 +96,7 @@ const ManageProducts = () => {
                   />
                 </td>
                 <td>
-                  <span className="text-green-400">Active</span>
+                  <span className="text-sky-500">Active</span>
                 </td>
                 <td>
                   <button className="bg-red-400 text-white p-2">
@@ -107,7 +107,7 @@ const ManageProducts = () => {
             </tbody>
           </table>
           <div className="pagination flex justify-end gap-1 my-3 items-center">
-            <button className="p-2 px-4 bg-green-400 text-white">1</button>
+            <button className="p-2 px-4 bg-sky-500 text-white">1</button>
             <button className="p-2 px-4 bg-gray-100">2</button>
             <button className="p-2 px-4 bg-gray-100">3</button>
             <button className="p-2 px-4 bg-gray-100">4</button>

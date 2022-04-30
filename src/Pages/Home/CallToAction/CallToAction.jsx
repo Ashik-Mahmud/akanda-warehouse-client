@@ -16,7 +16,7 @@ const CallToAction = () => {
               className="w-full outline-none p-5 text-lg"
               placeholder="Enter your email"
             />
-            <button className="bg-green-400 px-8 flex items-center gap-2 text-lg text-white">
+            <button className="bg-sky-500 px-8 flex items-center gap-2 text-lg text-white">
               Send <FiSend />
             </button>
           </form>

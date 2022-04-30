@@ -14,9 +14,9 @@ const Hero = () => {
         <div className="hero-content py-20 sm:py-40 flex flex-col md:flex-row md:justify-between items-center ">
           <div className="hero-text w-full text-center md:text-left mb-16 md:w-1/2 flex flex-col gap-3">
             <span className="text-xl">We will give you Brand Products</span>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl leading-tight  font-semibold">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl  font-semibold">
               Get your Best Product{" "}
-              <span className="text-green-500">Wholesale prices</span>
+              <span className="text-sky-500 block mt-4">Wholesale prices</span>
             </h1>
             <p className="text-gray-500 leading-7 my-4 text-justify">
               Welcome to the akanda warehouse! here you will buy electronics
@@ -26,10 +26,10 @@ const Hero = () => {
               do it.
             </p>
             <div className="btn-groups flex flex-wrap justify-center md:justify-start items-center gap-3">
-              <button className="bg-green-400 px-6 py-3 rounded text-white active:scale-95 transition-all">
+              <button className="bg-sky-500 px-6 py-3 rounded text-white active:scale-95 transition-all">
                 Best Selling
               </button>
-              <button className="px-7  hover:bg-green-400 hover:text-white py-3 border rounded border-green-400 text-green-400 transition-all">
+              <button className="px-7  hover:bg-sky-500 hover:text-white py-3 border rounded border-sky-500 text-sky-500 transition-all">
                 Start Buy
               </button>
             </div>
@@ -51,7 +51,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
@@ -69,7 +69,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
@@ -87,7 +87,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
@@ -105,7 +105,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
@@ -123,7 +123,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
@@ -141,7 +141,7 @@ const Hero = () => {
                 <div className="details  p-2">
                   <h3 className="text-2xl ">Laptop</h3>
                   <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-green-400">$343</span>
+                    <span className="text-sky-500">$343</span>
                     <span>20pcs</span>
                   </div>
                   <button className="bg-gray-300 px-3 py-1 mt-1 rounded">

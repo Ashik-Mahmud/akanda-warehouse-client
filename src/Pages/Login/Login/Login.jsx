@@ -87,11 +87,11 @@ const Login = () => {
           <h3 className="text-3xl mb-3 font-medium font-poppins">
             {isReset ? (
               <>
-                Reset <span className="text-green-400">Password</span>
+                Reset <span className="text-sky-500">Password</span>
               </>
             ) : (
               <>
-                Login into <span className="text-green-400">Account</span>
+                Login into <span className="text-sky-500">Account</span>
               </>
             )}
           </h3>
@@ -137,7 +137,7 @@ const Login = () => {
               {isReset ? "Go to home " : "Forget password? "}
               <span
                 onClick={() => setIsReset((prev) => !prev)}
-                className="cursor-pointer  text-green-400"
+                className="cursor-pointer  text-sky-500"
               >
                 {isReset ? " Page" : " Reset"}
               </span>
@@ -148,12 +148,12 @@ const Login = () => {
               <button
                 onClick={handleResetPassword}
                 type="button"
-                className="bg-green-400 w-full rounded text-lg text-white px-5 py-3"
+                className="bg-sky-500 w-full rounded text-lg text-white px-5 py-3"
               >
                 Reset Password
               </button>
             ) : (
-              <button className="bg-green-400 w-full rounded text-lg text-white px-5 py-3">
+              <button className="bg-sky-500 w-full rounded text-lg text-white px-5 py-3">
                 Sign In
               </button>
             )}
@@ -162,7 +162,7 @@ const Login = () => {
             Don't have an account?{" "}
             <span
               onClick={() => navigate("/sign-up")}
-              className="cursor-pointer text-green-400"
+              className="cursor-pointer text-sky-500"
             >
               Create
             </span>

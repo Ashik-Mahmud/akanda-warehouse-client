@@ -41,11 +41,11 @@ const Modal = ({ modal, setModal, isDelivery }) => {
               )}
             </div>
             {isDelivery ? (
-              <button className="bg-green-400 p-2 text-lg w-full my-2 text-white rounded">
+              <button className="bg-sky-500 p-2 text-lg w-full my-2 text-white rounded">
                 Delivered
               </button>
             ) : (
-              <button className="bg-green-400 p-2 text-lg w-full my-2 text-white rounded">
+              <button className="bg-sky-500 p-2 text-lg w-full my-2 text-white rounded">
                 Update Stock
               </button>
             )}

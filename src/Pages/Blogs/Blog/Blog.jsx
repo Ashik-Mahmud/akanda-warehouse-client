@@ -25,7 +25,7 @@ const Blog = () => {
         </p>
         <button
           onClick={() => navigate(`/blog-details/43`)}
-          className="bg-green-400 p-2 px-3 scale-90 text-white rounded my-2"
+          className="bg-sky-500 p-2 px-3 scale-90 text-white rounded my-2"
         >
           Read More
         </button>

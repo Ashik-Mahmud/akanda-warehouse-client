@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-center gap-3 sm:justify-between flex-wrap ">
             <h1 className="text-2xl">Get ready our support team 24/7.</h1>
-            <button className="transition-all px-6 py-4 bg-green-400 text-white rounded-md flex items-center gap-2 active:translate-y-1">
+            <button className="transition-all px-6 py-4 bg-sky-500 text-white rounded-md flex items-center gap-2 active:translate-y-1">
               {" "}
               <BiSupport /> Get Support
             </button>
@@ -111,7 +111,7 @@ const Footer = () => {
         <div className="copyright-text py-20 text-center text-gray-300">
           <p>
             &copy; Copyright by {new Date().getFullYear()} by{" "}
-            <span className="text-green-400">warehouse</span>
+            <span className="text-sky-500">warehouse</span>
           </p>
         </div>
       </div>

@@ -20,7 +20,7 @@ const Inventory = () => {
                   setModal(true);
                   setIsDelivery(true);
                 }}
-                className="bg-green-400 justify-center w-full sm:w-auto  p-3 flex items-center gap-2 transition-all active:scale-95 rounded text-white"
+                className="bg-sky-500 justify-center w-full sm:w-auto  p-3 flex items-center gap-2 transition-all active:scale-95 rounded text-white"
               >
                 <MdOutlineDeliveryDining className="text-2xl" />
                 Delivery
@@ -30,7 +30,7 @@ const Inventory = () => {
                   setModal(true);
                   setIsDelivery(false);
                 }}
-                className="bg-transparent w-full justify-center sm:w-auto border border-green-400 hover:bg-green-400 hover:text-white transition-all text-green-400 p-3 rounded  flex items-center gap-2"
+                className="bg-transparent w-full justify-center sm:w-auto border border-sky-500 hover:bg-sky-500 hover:text-white transition-all text-sky-500 p-3 rounded  flex items-center gap-2"
               >
                 <AiOutlineStock className="text-2xl" />
                 Update Stock
@@ -48,14 +48,14 @@ const Inventory = () => {
             <div className="details">
               <ul className="meta flex justify-between my-5 flex-wrap gap-3">
                 <li>
-                  Prices - <span className="text-green-400">154$</span>
+                  Prices - <span className="text-sky-500">154$</span>
                 </li>
                 <li>
-                  Total Stock - <span className="text-green-400">434pcs</span>
+                  Total Stock - <span className="text-sky-500">434pcs</span>
                 </li>
                 <li>
                   Supplier Name -{" "}
-                  <span className="text-green-400">Ashik Mahmud</span>
+                  <span className="text-sky-500">Ashik Mahmud</span>
                 </li>
               </ul>
               <p className="desc leading-7 text-gray-500">
@@ -66,7 +66,7 @@ const Inventory = () => {
               </p>
             </div>
             <div className="card-footer bg-gray-100 mt-8 p-3 text-right">
-              <Link to="/manage-products" className="text-green-400">
+              <Link to="/manage-products" className="text-sky-500">
                 Manage All Products.
               </Link>
             </div>

@@ -21,7 +21,7 @@ const Item = () => {
         </span>
 
         <div className="flex gap-2 justify-center">
-          <button className="w-8 h-8 grid place-items-center bg-green-400 rounded text-white">
+          <button className="w-8 h-8 grid place-items-center bg-sky-500 rounded text-white">
             <FaEdit />
           </button>
           <button className="w-8 h-8 grid place-items-center bg-red-400 text-white rounded">

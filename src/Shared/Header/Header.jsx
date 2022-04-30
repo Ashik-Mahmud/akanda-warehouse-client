@@ -132,6 +132,7 @@ const HeaderContainer = styled.header`
       position: relative;
       ul {
         width: 240px;
+        left: -40%;
       }
     }
     .profile {

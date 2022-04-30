@@ -1,8 +1,11 @@
 import React from "react";
 import { BsBoxArrowDownRight } from "react-icons/bs";
 import styled from "styled-components";
+import Loader from "../../../Components/Loader/Loader";
 import Product from "../../../Components/Product/Product";
+import useProducts from "../../../Hooks/useProducts";
 const ProductItems = () => {
+  const { products, loading } = useProducts();
   return (
     <ProductItemsContainer className="py-20 bg-white bg-gradient-to-t">
       <div className="container">
@@ -14,12 +17,20 @@ const ProductItems = () => {
             Latest Items
           </h2>
         </div>
-        <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 my-10 items-center flex-wrap  gap-6">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-        </div>
+        {loading ? (
+          products.length > 0 ? (
+            <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 my-10 items-center flex-wrap  gap-6">
+              {products?.slice(0, 6)?.map((product) => (
+                <Product key={product._id} {...product} />
+              ))}
+            </div>
+          ) : (
+            "No data found"
+          )
+        ) : (
+          <Loader />
+        )}
+
         <div className="text-right flex justify-end">
           <button className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-sky-500 px-5 py-2 rounded">
             All Inventories Product <BsBoxArrowDownRight />

@@ -12,14 +12,14 @@ const Item = () => {
         />
       </div>
       <div className="details text-center">
-        <span className="text-sm uppercase text-gray-400 block mt-2">
-          Ashik Mahmud
+        <span className="uppercase text-sm block mt-2 text-gray-400">
+          Price - $34
         </span>
         <h3 className="text-lg mb-1">Laptop name</h3>
-        <div className="flex justify-between gap-3 my-2">
-          <span className="uppercase text-sm text-gray-400"> $34</span>
-          <span className="uppercase text-sm text-gray-400"> 34pcs</span>
-        </div>
+        <span className="uppercase text-sm mb-2 block text-gray-400">
+          Quantity - 34pcs
+        </span>
+
         <div className="flex gap-2 justify-center">
           <button className="w-8 h-8 grid place-items-center bg-green-400 rounded text-white">
             <FaEdit />

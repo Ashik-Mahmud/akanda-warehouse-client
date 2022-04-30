@@ -4,11 +4,11 @@ const Teams = () => {
   return (
     <div className="teams py-10">
       <div className="container">
-        <div className="team-title text-center my-14">
-          <span className="uppercase text-sm text-gray-500">Our Team</span>
-          <h1 className="text-5xl uppercase font-semibold mb-6 text-gray-600 mt-2">
+        <div className="title">
+          <span className="text-lg uppercase text-gray-400">Our Team</span>
+          <h2 className="text-3xl uppercase text-gray-700 font-semibold">
             Management
-          </h1>
+          </h2>
         </div>
         <div className="team-content flex justify-between items-center gap-8">
           <div className="team-member shadow-md rounded p-5">

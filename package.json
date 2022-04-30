@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.5",
+    "axios": "^0.27.2",
     "postcss": "^8.4.12",
     "react-countup": "^6.2.0",
     "react-reveal": "^1.2.2",

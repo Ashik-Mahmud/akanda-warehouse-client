@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineStock } from "react-icons/ai";
 import { MdOutlineDeliveryDining } from "react-icons/md";
 import styled from "styled-components";
+import Modal from "./Modal/Modal";
 const Inventory = () => {
+  const [modal, setModal] = useState(false);
+  const [isDelivery, setIsDelivery] = useState(false);
   return (
     <ProductDetailsContainer className="p-10">
+      <Modal modal={modal} setModal={setModal} isDelivery={isDelivery} />
       <div className="container">
         <div className="card shadow-md rounded p-10">
           <div className="card-header flex justify-between flex-wrap gap-3">
             <h3 className="text-2xl font-semibold">Name Goes here</h3>
-            <div className="flex gap-3 flex-wrap items-center">
-              <button className="bg-green-400 p-3 flex items-center gap-2 transition-all active:scale-95 rounded text-white">
+            <div className="flex gap-3  flex-wrap items-center">
+              <button
+                onClick={() => {
+                  setModal(true);
+                  setIsDelivery(true);
+                }}
+                className="bg-green-400 justify-center w-full sm:w-auto  p-3 flex items-center gap-2 transition-all active:scale-95 rounded text-white"
+              >
                 <MdOutlineDeliveryDining className="text-2xl" />
                 Delivery
               </button>
-              <button className="bg-transparent border border-green-400 hover:bg-green-400 hover:text-white transition-all text-green-400 p-3 rounded  flex items-center gap-2">
+              <button
+                onClick={() => {
+                  setModal(true);
+                  setIsDelivery(false);
+                }}
+                className="bg-transparent w-full justify-center sm:w-auto border border-green-400 hover:bg-green-400 hover:text-white transition-all text-green-400 p-3 rounded  flex items-center gap-2"
+              >
                 <AiOutlineStock className="text-2xl" />
                 Update Stock
               </button>

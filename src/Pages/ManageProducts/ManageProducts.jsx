@@ -5,7 +5,7 @@ const ManageProducts = () => {
   return (
     <ManageProductsContainer className="p-5">
       <div className="container">
-        <div className="title my-6 flex justify-between items-center">
+        <div className="title my-6 flex justify-between items-center flex-wrap gap-3">
           <div>
             <span>You can see all the products here</span>
             <h2 className="text-2xl font-semibold">Manage All Products</h2>
@@ -15,7 +15,7 @@ const ManageProducts = () => {
             <BsPlus className="text-white text-2xl" /> Add Product
           </button>
         </div>
-        <div className="table-wrapper bg-white p-10 border shadow-sm rounded">
+        <div className="table-wrapper bg-white p-10 border shadow-sm rounded overflow-auto">
           <table className="w-full text-left">
             <thead className="bg-gray-100">
               <tr>

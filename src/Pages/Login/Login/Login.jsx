@@ -1,7 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../../../App";
+import { auth } from "../../../Firebase/Firebase.config";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
@@ -16,6 +19,31 @@ const Login = () => {
     }
   }, [isAuth, navigate, from]);
 
+  /* Handle Login Form */
+  const [loginInput, setLoginInput] = useState({
+    email: "",
+    password: "",
+  });
+  const handleLoginForm = async (event) => {
+    event.preventDefault();
+    /* validation  */
+    if (!loginInput.email) return toast.error(`Email field is required.`);
+    if (!loginInput.password) return toast.error(`Password field is required.`);
+
+    await signInWithEmailAndPassword(
+      auth,
+      loginInput.email,
+      loginInput.password
+    )
+      .then((res) => {
+        toast.success(`Sign In successfully done.`);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        toast.error(err.message.split(":")[1]);
+      });
+  };
+
   return (
     <LoginContainer className="grid place-items-center min-h-[70vh]">
       <div className="login-wrapper  rounded flex flex-col md:flex-row w-full py-5 md:py-0  md:w-full lg:w-2/4 items-stretch gap-10 shadow-sm border">
@@ -28,6 +56,7 @@ const Login = () => {
         </div>
         <form
           action=""
+          onSubmit={handleLoginForm}
           className="form-wrapper w-full md:w-2/5 px-4  py-10 order-1 md:order-2 "
         >
           <h3 className="text-3xl mb-3 font-medium font-poppins">
@@ -43,6 +72,9 @@ const Login = () => {
               placeholder="Email"
               id="email"
               name="email"
+              onChange={(event) =>
+                setLoginInput({ ...loginInput, email: event.target.value })
+              }
             />
           </div>
           <div className="input-group">
@@ -55,6 +87,9 @@ const Login = () => {
               name="password"
               placeholder="Password"
               id="password"
+              onChange={(event) =>
+                setLoginInput({ ...loginInput, password: event.target.value })
+              }
             />
             <p className="my-2">
               Forget password?{" "}

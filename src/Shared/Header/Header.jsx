@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import { signOut } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { BsGrid } from "react-icons/bs";
 import { FaWarehouse } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { AppContext } from "../../App";
+import { auth } from "../../Firebase/Firebase.config";
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const { isAuth } = useContext(AppContext);
+
+  /* handle log out */
+  const handleLogOut = async () => {
+    await signOut(auth).then(() => {
+      toast.success("Sign Out successfully done.");
+    });
+  };
 
   return (
     <HeaderContainer className="py-6 shadow-sm">
@@ -28,29 +40,36 @@ const Header = () => {
                   Blogs
                 </NavLink>
               </li>
-              <li>
-                <NavLink className="text-lg" to="/manage-products">
-                  Manage Products
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="text-lg" to="/my-items">
-                  My Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="text-lg" to="/add-product">
-                  Add Product
-                </NavLink>
-              </li>
-              <li>
-                <Link
-                  className="text-lg flex items-center gap-2 bg-green-500 px-5 py-2 rounded-sm ring-2 ring-offset-2 ring-green-500 text-white"
-                  to="/login"
-                >
-                  <AiOutlineLogin /> Login
-                </Link>
-              </li>
+              {isAuth && (
+                <>
+                  <li>
+                    <NavLink className="text-lg" to="/manage-products">
+                      Manage Products
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="text-lg" to="/my-items">
+                      My Items
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="text-lg" to="/add-product">
+                      Add Product
+                    </NavLink>
+                  </li>
+                </>
+              )}
+
+              {!isAuth && (
+                <li>
+                  <Link
+                    className="text-lg flex items-center gap-2 bg-green-500 px-5 py-2 rounded-sm ring-2 ring-offset-2 ring-green-500 text-white"
+                    to="/login"
+                  >
+                    <AiOutlineLogin /> Login
+                  </Link>
+                </li>
+              )}
             </ul>
             <div
               className="menu-icon cursor-pointer"
@@ -63,24 +82,42 @@ const Header = () => {
               )}
             </div>
           </menu>
-          <div className="profile flex items-center">
-            <div className="avatar border-4 border-slate-300 rounded-full overflow-hidden">
-              <img
-                width={40}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq_I0JFO2DxoAV3J-sI7ajtx0qW0Q5neaY_A&usqp=CAU"
-                alt="avatar"
-              />
-            </div>
-            <div className="details flex items-center gap-2">
-              <div className="mx-2 flex flex-col">
-                <span>Ashik Mahmud</span>
-                <small>ashik@gmail.com</small>
+
+          {isAuth && (
+            <div className="profile flex items-center">
+              <div className="avatar border-4 border-slate-300 rounded-full overflow-hidden">
+                {auth?.currentUser?.photoURL ? (
+                  <img
+                    width={40}
+                    src={auth?.currentUser?.photoURL}
+                    alt="avatar"
+                  />
+                ) : (
+                  auth?.currentUser?.displayName?.slice(0, 1)
+                )}
               </div>
-              <button className="flex ring-1 ring-offset-1 ring-red-400 items-center gap-2 bg-red-400 text-white px-3 py-2 font-medium rounded-sm">
-                <AiOutlineLogout /> Log out
-              </button>
+              <div className="details flex items-center gap-2">
+                <div className="mx-2 flex flex-col">
+                  <span>
+                    {auth?.currentUser?.displayName
+                      ? auth?.currentUser?.displayName
+                      : "not available"}
+                  </span>
+                  <small title={auth?.currentUser?.email}>
+                    {auth?.currentUser?.email
+                      ? auth?.currentUser?.email?.slice(0, 20) + "..."
+                      : "not available"}
+                  </small>
+                </div>
+                <button
+                  onClick={handleLogOut}
+                  className="flex ring-1 ring-offset-1 ring-red-400 items-center gap-2 bg-red-400 text-white px-3 py-2 font-medium rounded-sm"
+                >
+                  <AiOutlineLogout /> Log out
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </nav>
       </div>
     </HeaderContainer>

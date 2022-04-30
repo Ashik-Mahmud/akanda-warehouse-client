@@ -1,5 +1,8 @@
+import { createContext } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import useFirebase from './Hooks/useFirebase';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
 import BlogDetails from './Pages/BlogDetails/BlogDetails';
 import Blogs from './Pages/Blogs/Blogs';
@@ -12,9 +15,13 @@ import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Shared/Footer/Footer';
 import Header from './Shared/Header/Header';
+export const AppContext = createContext(null)
 function App() {
+    const {user, isAuth} = useFirebase();
   return (
     <>
+    <Toaster />
+    <AppContext.Provider value={{user, isAuth}}>
     <Header />
     <Routes>
         <Route path='/' element={<Home />} />
@@ -36,6 +43,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
     </Routes>
      <Footer />
+     </AppContext.Provider>
     </>
   );
 }

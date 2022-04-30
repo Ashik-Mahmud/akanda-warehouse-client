@@ -1,8 +1,12 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React from "react";
+import useFirebase from "../../../Hooks/useFirebase";
 
 const SocialLogin = () => {
+  const { socialSignIn } = useFirebase();
   const handleGoogleSignIn = async () => {
-    console.log("sign in with google");
+    const provider = new GoogleAuthProvider();
+    socialSignIn(provider);
   };
 
   return (
@@ -14,7 +18,7 @@ const SocialLogin = () => {
       </div>
       <div
         onClick={handleGoogleSignIn}
-        className="google flex p-2 border rounded-full my-4 items-center gap-14 cursor-pointer"
+        className="google flex p-2 border rounded-full my-4 items-center gap-16 cursor-pointer"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/128/2702/2702602.png"

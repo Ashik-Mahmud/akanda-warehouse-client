@@ -18,7 +18,7 @@ const Login = () => {
         </div>
         <form
           action=""
-          className="form-wrapper w-full md:w-2/5 px-10  py-10 order-1 md:order-2 "
+          className="form-wrapper w-full md:w-2/5 px-4  py-10 order-1 md:order-2 "
         >
           <h3 className="text-3xl mb-3 font-medium font-poppins">
             Login into <span className="text-green-400">Account</span>

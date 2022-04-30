@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
+  const navigate = useNavigate();
   return (
     <div className="shadow p-2">
       <div className="image rounded overflow-hidden h-40">
@@ -21,7 +23,10 @@ const Blog = () => {
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
           aperiam,
         </p>
-        <button className="bg-green-400 p-2 px-3 scale-90 text-white rounded my-2">
+        <button
+          onClick={() => navigate(`/blog-details/43`)}
+          className="bg-green-400 p-2 px-3 scale-90 text-white rounded my-2"
+        >
           Read More
         </button>
       </div>

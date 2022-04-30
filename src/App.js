@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
+import BlogDetails from './Pages/BlogDetails/BlogDetails';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blog-details/:BlogId' element={<BlogDetails />} />
 
         {/* login page  */}
         <Route path='/login' element={<Login />} />

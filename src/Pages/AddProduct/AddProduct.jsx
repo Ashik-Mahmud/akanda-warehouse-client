@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const AddProduct = () => {
   const navigate = useNavigate();
   return (
-    <div className="p-10">
+    <div className="p-5 md:p-10">
       <div className="container">
         <div className="title my-6 flex justify-between items-center flex-wrap gap-3">
           <div>
@@ -20,7 +20,7 @@ export const AddProduct = () => {
         </div>
         <form
           action=""
-          className="add-product-wrapper p-10 md:p-20 rounded border shadow bg-white"
+          className="add-product-wrapper p-8 md:p-20 rounded border shadow bg-white"
         >
           <div className="input-group flex flex-col gap-2">
             <label htmlFor="name">Name</label>
@@ -31,7 +31,7 @@ export const AddProduct = () => {
               id="name"
             />
           </div>
-          <div className="flex items-center gap-2 my-3">
+          <div className="flex items-center gap-2 my-3 flex-col sm:flex-row">
             <div className="input-group w-full flex flex-col gap-2">
               <label htmlFor="price">Price</label>
               <input

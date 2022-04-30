@@ -114,6 +114,7 @@ const HeaderContainer = styled.header`
         text-align: center;
         border-radius: 10px;
         transition: all 0.5s ease;
+        z-index: 6;
 
         &.active {
           opacity: 1;
@@ -127,6 +128,12 @@ const HeaderContainer = styled.header`
     }
   }
   @media (max-width: 460px) {
+    .primary-menu {
+      position: relative;
+      ul {
+        width: 240px;
+      }
+    }
     .profile {
       position: relative;
       .details {
@@ -143,6 +150,7 @@ const HeaderContainer = styled.header`
         opacity: 0;
         pointer-events: none;
         transition: all 0.4s ease;
+        z-index: 65;
       }
       &:hover .details {
         pointer-events: all;

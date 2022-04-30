@@ -10,11 +10,11 @@ const Teams = () => {
             Management
           </h2>
         </div>
-        <div className="team-content flex justify-between items-center gap-8">
+        <div className="team-content mt-7 grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3  justify-between items-center gap-8">
           <div className="team-member shadow-md rounded p-5">
-            <div className="image w-96 h-80 overflow-hidden rounded">
+            <div className="image h-80 overflow-hidden rounded">
               <img
-                className="max-w-full"
+                className="w-full h-full object-cover"
                 src="http://webdesign-finder.com/rentiger/wp-content/uploads/2020/03/team-01.jpg"
                 alt="team1"
               />
@@ -36,9 +36,9 @@ const Teams = () => {
             </div>
           </div>
           <div className="team-member shadow-md rounded p-5">
-            <div className="image w-96 h-80 overflow-hidden rounded">
+            <div className="image h-80 overflow-hidden rounded">
               <img
-                className="max-w-full"
+                className="w-full h-full object-cover"
                 src="http://webdesign-finder.com/rentiger/wp-content/uploads/2020/03/team-01.jpg"
                 alt="team1"
               />
@@ -61,9 +61,9 @@ const Teams = () => {
           </div>
 
           <div className="team-member shadow-md rounded p-5">
-            <div className="image w-96 h-80 overflow-hidden rounded">
+            <div className="image  h-80 overflow-hidden rounded">
               <img
-                className="max-w-full"
+                className="w-full h-full object-cover"
                 src="http://webdesign-finder.com/rentiger/wp-content/uploads/2020/03/team-01.jpg"
                 alt="team1"
               />

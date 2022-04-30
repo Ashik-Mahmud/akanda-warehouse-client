@@ -14,7 +14,7 @@ const ProductItems = () => {
             Latest Items
           </h2>
         </div>
-        <div className="products grid grid-cols-4 my-10 items-center flex-wrap  gap-6">
+        <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 my-10 items-center flex-wrap  gap-6">
           <Product />
           <Product />
           <Product />

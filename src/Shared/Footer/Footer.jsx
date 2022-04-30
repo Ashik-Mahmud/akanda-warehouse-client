@@ -8,7 +8,7 @@ const Footer = () => {
     <FooterContainer className="bg-gray-700">
       <div className="footer-upper p-8 bg-gray-100">
         <div className="container mx-auto">
-          <div className="flex items-center justify-center gap-3 sm:justify-between flex-wrap ">
+          <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-center gap-3 sm:justify-between flex-wrap ">
             <h1 className="text-2xl">Get ready our support team 24/7.</h1>
             <button className="transition-all px-6 py-4 bg-green-400 text-white rounded-md flex items-center gap-2 active:translate-y-1">
               {" "}

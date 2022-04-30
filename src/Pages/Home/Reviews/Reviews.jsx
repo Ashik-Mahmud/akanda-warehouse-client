@@ -27,12 +27,16 @@ const Reviews = () => {
           }}
           modules={[Pagination, Navigation]}
           breakpoints={{
+            200: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
             640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
+              slidesPerView: 1,
+              spaceBetween: 10,
             },
             768: {
-              slidesPerView: 4,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {

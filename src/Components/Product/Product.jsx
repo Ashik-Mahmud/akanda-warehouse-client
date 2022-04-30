@@ -2,7 +2,10 @@ import React from "react";
 
 const Product = () => {
   return (
-    <div className="p-2 shadow rounded">
+    <div className="p-2 shadow rounded relative">
+      <div className="badge absolute top-1 right-1 bg-teal-500 text-sm rounded-full text-white px-2 py-1 ">
+        New
+      </div>
       <div className="image w-full h-60 overflow-hidden border border-gray-50 rounded">
         <img
           src="https://static-01.daraz.com.bd/p/9eb4281b7d9f084cec2d8e86fbc16259.jpg"
@@ -21,11 +24,13 @@ const Product = () => {
             this is simple short description....
           </p>
         </div>
-        <div className="flex items-center justify-between my-3">
-          <button className="bg-green-400 px-3 py-2 rounded text-white">
-            Get
+        <div className="flex items-start gap-2 justify-between my-3 flex-wrap flex-col">
+          <button className="bg-green-400 px-3 py-2 flex-wrap rounded text-white">
+            Manage
           </button>
-          <p className="text-sm text-gray-400 uppercase">Supp- Ashik Mahmud</p>
+          <p className="text-sm text-gray-400 uppercase">
+            Supplier- Ashik Mahmud
+          </p>
         </div>
       </div>
     </div>

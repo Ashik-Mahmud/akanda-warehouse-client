@@ -1,4 +1,5 @@
 import React from "react";
+import { BsBoxArrowDownRight } from "react-icons/bs";
 import styled from "styled-components";
 import Product from "../../../Components/Product/Product";
 const ProductItems = () => {
@@ -18,10 +19,11 @@ const ProductItems = () => {
           <Product />
           <Product />
           <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+        </div>
+        <div className="text-right flex justify-end">
+          <button className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-green-400 px-5 py-2 rounded">
+            All Inventories Product <BsBoxArrowDownRight />
+          </button>
         </div>
       </div>
     </ProductItemsContainer>

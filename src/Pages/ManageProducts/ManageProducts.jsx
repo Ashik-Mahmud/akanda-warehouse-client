@@ -1,13 +1,19 @@
 import React from "react";
-import { BsTrash } from "react-icons/bs";
+import { BsPlus, BsTrash } from "react-icons/bs";
 import styled from "styled-components";
 const ManageProducts = () => {
   return (
     <ManageProductsContainer className="p-5">
       <div className="container">
-        <div className="title my-6">
-          <span>You can see all the products here</span>
-          <h2 className="text-2xl font-semibold">Manage All Products</h2>
+        <div className="title my-6 flex justify-between items-center">
+          <div>
+            <span>You can see all the products here</span>
+            <h2 className="text-2xl font-semibold">Manage All Products</h2>
+          </div>
+          <button className="flex gap-1 p-3 items-center bg-green-400 rounded active:scale-95 transition-all text-white">
+            {" "}
+            <BsPlus className="text-white text-2xl" /> Add Product
+          </button>
         </div>
         <div className="table-wrapper bg-white p-10 border shadow-sm rounded">
           <table className="w-full text-left">
@@ -96,9 +102,7 @@ const ManageProducts = () => {
             </tbody>
           </table>
           <div className="pagination flex justify-end gap-1 my-3 items-center">
-            <button className="p-2 px-4 bg-gray-100 bg-green-400 text-white">
-              1
-            </button>
+            <button className="p-2 px-4 bg-green-400 text-white">1</button>
             <button className="p-2 px-4 bg-gray-100">2</button>
             <button className="p-2 px-4 bg-gray-100">3</button>
             <button className="p-2 px-4 bg-gray-100">4</button>

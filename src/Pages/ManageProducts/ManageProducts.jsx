@@ -1,7 +1,9 @@
 import React from "react";
 import { BsPlus, BsTrash } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const ManageProducts = () => {
+  const navigate = useNavigate();
   return (
     <ManageProductsContainer className="p-5">
       <div className="container">
@@ -10,7 +12,10 @@ const ManageProducts = () => {
             <span>You can see all the products here</span>
             <h2 className="text-2xl font-semibold">Manage All Products</h2>
           </div>
-          <button className="flex gap-1 p-3 items-center bg-green-400 rounded active:scale-95 transition-all text-white">
+          <button
+            onClick={() => navigate("/add-product")}
+            className="flex gap-1 p-3 items-center bg-green-400 rounded active:scale-95 transition-all text-white"
+          >
             {" "}
             <BsPlus className="text-white text-2xl" /> Add Product
           </button>

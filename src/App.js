@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { AddProduct } from './Pages/AddProduct/AddProduct';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/manage-products' element={<ManageProducts />} />
         <Route path='/my-items' element={<MyItems />} />
         <Route path='/inventory/:inventoryId' element={<Inventory />} />
+        <Route path='/add-product' element={<AddProduct />} />
 
         {/* not found route  */}
         <Route path='*' element={<NotFound />} />

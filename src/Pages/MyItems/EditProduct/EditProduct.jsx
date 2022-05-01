@@ -63,7 +63,7 @@ const EditProduct = () => {
 
     await axios
       .put(
-        `http://localhost:5000/product?id=${productId}&&uid=${auth?.currentUser?.uid}`,
+        `https://akanda-warehouse-server.herokuapp.com/product?id=${productId}&&uid=${auth?.currentUser?.uid}`,
         {
           data: productData,
           authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,

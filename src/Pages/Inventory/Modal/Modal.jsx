@@ -22,9 +22,12 @@ const Modal = ({
       );
     setStock((prev) => prev - Number(modalInput));
     await axios
-      .put(`http://localhost:5000/increase-stock?id=${inventoryId}`, {
-        stock: modalInput,
-      })
+      .put(
+        `https://akanda-warehouse-server.herokuapp.com/increase-stock?id=${inventoryId}`,
+        {
+          stock: modalInput,
+        }
+      )
       .then((res) => {
         toast.success(`Delivered Product ${modalInput} pcs`);
         setModal(false);
@@ -37,13 +40,19 @@ const Modal = ({
   };
 
   /* Handle Update Stock */
+  /* 
+   REVIEW: Really sorry for duplicate code.
+  */
   const handleUpdateStock = async () => {
     if (!modalInput) return toast.error(`Update Stock field is required.`);
     setStock((prev) => prev + Number(modalInput));
     await axios
-      .put(`http://localhost:5000/update-stock?id=${inventoryId}`, {
-        stock: modalInput,
-      })
+      .put(
+        `https://akanda-warehouse-server.herokuapp.com/update-stock?id=${inventoryId}`,
+        {
+          stock: modalInput,
+        }
+      )
       .then((res) => {
         toast.success(`Stock Updated ${modalInput} pcs`);
         setModal(false);

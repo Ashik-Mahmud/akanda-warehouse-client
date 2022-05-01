@@ -1,7 +1,7 @@
 import axios from 'axios';
 const Token = (id) => {
     axios
-    .post(`http://localhost:5000/login`, {
+    .post(`https://akanda-warehouse-server.herokuapp.com/login`, {
       uid: id,
     })
     .then((res) => {

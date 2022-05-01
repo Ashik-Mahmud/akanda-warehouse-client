@@ -8,7 +8,7 @@ const useCurrentUserProduct = () => {
     (async () => {
       await axios
         .get(
-          `http://localhost:5000/currentUser-product?uid=${auth?.currentUser?.uid}`,
+          `https://akanda-warehouse-server.herokuapp.com/currentUser-product?uid=${auth?.currentUser?.uid}`,
           {
             headers: {
               authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,

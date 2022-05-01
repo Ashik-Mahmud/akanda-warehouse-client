@@ -32,7 +32,7 @@ const ManageProducts = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `http://localhost:5000/product?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            `https://akanda-warehouse-server.herokuapp.com/product?id=${id}&&userId=${auth?.currentUser?.uid}`,
             {
               headers: {
                 authorization: `Bearer ${sessionStorage.getItem(

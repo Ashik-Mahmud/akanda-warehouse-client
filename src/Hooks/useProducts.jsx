@@ -7,7 +7,9 @@ const useProducts = (limit, page) => {
   useEffect(() => {
     (async () => {
       await axios
-        .get(`http://localhost:5000/products?limit=${limit}&&page=${page}`)
+        .get(
+          `https://akanda-warehouse-server.herokuapp.com/products?limit=${limit}&&page=${page}`
+        )
         .then((res) => {
           setLoading(true);
           setProducts(res.data.result);

@@ -29,7 +29,7 @@ const MyItems = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `http://localhost:5000/current-user-product?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            `https://akanda-warehouse-server.herokuapp.com/current-user-product?id=${id}&&userId=${auth?.currentUser?.uid}`,
             {
               headers: {
                 authorization: `Bearer ${sessionStorage.getItem(
@@ -54,7 +54,7 @@ const MyItems = () => {
     if (!search) return toast.error("Search field is required.");
     await axios
       .get(
-        `http://localhost:5000/search?id=${auth?.currentUser?.uid}&&search=${search}`
+        `https://akanda-warehouse-server.herokuapp.com/search?id=${auth?.currentUser?.uid}&&search=${search}`
       )
       .then((res) => {
         setCurrentUserProduct(res.data.result);

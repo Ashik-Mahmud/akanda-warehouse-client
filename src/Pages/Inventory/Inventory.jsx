@@ -64,7 +64,7 @@ const Inventory = () => {
                   className="bg-transparent w-full justify-center sm:w-auto border border-sky-500 hover:bg-sky-500 hover:text-white transition-all text-sky-500 p-3 rounded  flex items-center gap-2"
                 >
                   <AiOutlineStock className="text-2xl" />
-                  Update Stock
+                  Restock
                 </button>
               </div>
             </div>

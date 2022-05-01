@@ -54,7 +54,7 @@ const Hero = () => {
               modules={[EffectCards]}
               className="mySwiper"
             >
-              {products.map((product) => (
+              {products?.slice(0, 12).map((product) => (
                 <SwiperSlide key={product._id}>
                   <div className="image">
                     <img src={product?.imageUrl} alt={product?.name} />
@@ -69,16 +69,16 @@ const Hero = () => {
                     </div>
                     <button
                       onClick={() => navigate(`/inventory/${product?._id}`)}
-                      className="bg-gray-300 px-3 py-1 mt-1 rounded"
+                      className="bg-sky-400 px-3 py-1 mt-1 rounded text-white"
                     >
-                      Update
+                      Manage
                     </button>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
             <h1 className="text-2xl text-center my-6 font-semibold">
-              Best Selling{" "}
+              Check Out Top 12 Products{" "}
             </h1>
           </div>
         </div>

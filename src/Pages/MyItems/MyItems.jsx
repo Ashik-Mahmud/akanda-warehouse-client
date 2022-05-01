@@ -1,10 +1,12 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
 import useCurrentUserProduct from "../../Hooks/useCurrentUserProduct";
 import Item from "./Item/Item";
 const MyItems = () => {
+  const navigate = useNavigate();
   const { currentUserProduct, loading } = useCurrentUserProduct();
   return (
     <section className="my-items">
@@ -39,7 +41,15 @@ const MyItems = () => {
               ))}
             </div>
           ) : (
-            "No data found"
+            <div className="text-center py-10">
+              <h3 className="text-2xl my-2">No Items found yet.</h3>
+              <button
+                onClick={() => navigate(`/add-product`)}
+                className="bg-sky-500 p-3 text-white rounded my-3"
+              >
+                Add New Item
+              </button>
+            </div>
           )
         ) : (
           <Loader />

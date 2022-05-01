@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineStock } from "react-icons/ai";
 import { BsChevronDoubleLeft } from "react-icons/bs";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -12,14 +12,26 @@ const Inventory = () => {
   const [isDelivery, setIsDelivery] = useState(false);
   const { products, loading } = useProducts();
   const { inventoryId } = useParams();
+
   const currentProduct = products.find(
     (product) => product._id === inventoryId
   );
   const navigate = useNavigate();
+  const [stock, setStock] = useState(currentProduct?.stockQty);
+  useEffect(() => {
+    setStock(currentProduct?.stockQty);
+  }, [currentProduct]);
 
   return (
     <ProductDetailsContainer className="p-10">
-      <Modal modal={modal} setModal={setModal} isDelivery={isDelivery} />
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        inventoryId={inventoryId}
+        isDelivery={isDelivery}
+        setStock={setStock}
+        stock={stock}
+      />
       <div className="container">
         {loading ? (
           <div className="card shadow-md rounded p-10">
@@ -74,8 +86,12 @@ const Inventory = () => {
                   </li>
                   <li>
                     Total Stock -{" "}
-                    <span className="text-sky-500">
-                      {currentProduct?.stockQty}pcs
+                    <span
+                      className={`${
+                        stock === 0 ? "text-red-500" : "text-sky-400"
+                      }`}
+                    >
+                      {stock === 0 ? "Out of Stock" : stock + "pcs"}
                     </span>
                   </li>
                   <li>

@@ -61,7 +61,7 @@ export const AddProduct = () => {
     const productData = {
       name: productInput.name,
       price: productInput.price,
-      stockQty: productInput.stockQty,
+      stockQty: Number(productInput.stockQty),
       description: productInput.description,
       imageUrl: productInput.imageUrl,
       supplierName: productInput.supplierName,

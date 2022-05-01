@@ -12,27 +12,27 @@ const Modal = ({
   stock,
 }) => {
   const formRef = useRef(null);
-  const [modalInput, setModalInput] = useState(0);
+  const [delivery, setDelivery] = useState(0);
   /* Handle Delivery count  */
   const handleDeliveryCount = async () => {
-    if (!modalInput) return toast.error("Stock Quantity field is required.");
-    if (modalInput > stock)
+    if (!delivery) return toast.error("Stock Quantity field is required.");
+    if (delivery > stock)
       return toast.error(
         `You can't deliver more than of your stock. available ${stock}`
       );
-    setStock((prev) => prev - Number(modalInput));
+    setStock((prev) => prev - Number(delivery));
     await axios
       .put(
         `https://akanda-warehouse-server.herokuapp.com/increase-stock?id=${inventoryId}`,
         {
-          stock: modalInput,
+          stock: delivery,
         }
       )
       .then((res) => {
-        toast.success(`Delivered Product ${modalInput} pcs`);
+        toast.success(`Delivered Product ${delivery} pcs`);
         setModal(false);
         formRef.current.reset();
-        setModalInput(0);
+        setDelivery(0);
       })
       .catch((err) => {
         console.log(err);
@@ -43,21 +43,22 @@ const Modal = ({
   /* 
    REVIEW: Really sorry for duplicate code.
   */
+  const [restock, setRestock] = useState(0);
   const handleUpdateStock = async () => {
-    if (!modalInput) return toast.error(`Update Stock field is required.`);
-    setStock((prev) => prev + Number(modalInput));
+    if (!restock) return toast.error(`Update Stock field is required.`);
+    setStock((prev) => prev + Number(restock));
     await axios
       .put(
         `https://akanda-warehouse-server.herokuapp.com/update-stock?id=${inventoryId}`,
         {
-          stock: modalInput,
+          stock: restock,
         }
       )
       .then((res) => {
-        toast.success(`Stock Updated ${modalInput} pcs`);
+        toast.success(`Stock Updated ${restock} pcs`);
         setModal(false);
         formRef.current.reset();
-        setModalInput(0);
+        setRestock(0);
       })
       .catch((err) => {
         console.log(err);
@@ -92,7 +93,8 @@ const Modal = ({
                   className="w-full p-3 border outline-none rounded"
                   id="quantity"
                   placeholder="Quantity"
-                  onChange={(event) => setModalInput(event.target.value)}
+                  value={delivery || ""}
+                  onChange={(event) => setDelivery(event.target.value)}
                 />
               ) : (
                 <input
@@ -100,7 +102,8 @@ const Modal = ({
                   className="w-full p-3 border outline-none rounded"
                   id="stock"
                   placeholder="Stock"
-                  onChange={(event) => setModalInput(event.target.value)}
+                  value={restock || ""}
+                  onChange={(event) => setRestock(event.target.value)}
                 />
               )}
             </div>

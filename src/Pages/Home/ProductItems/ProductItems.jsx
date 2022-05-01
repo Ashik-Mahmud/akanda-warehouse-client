@@ -1,5 +1,6 @@
 import React from "react";
 import { BsBoxArrowDownRight } from "react-icons/bs";
+import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "../../../Components/Loader/Loader";
@@ -14,28 +15,31 @@ const ProductItems = () => {
       className="py-20 bg-white bg-gradient-to-t"
     >
       <div className="container">
-        <div className="title">
-          <span className="text-lg uppercase text-gray-400">
-            We got a new Products in the weeks
-          </span>
-          <h2 className="text-3xl uppercase text-gray-700 font-semibold">
-            Latest Items
-          </h2>
-        </div>
-        {loading ? (
-          products.length > 0 ? (
-            <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 my-10 items-center flex-wrap  gap-6">
-              {products?.slice(0, 6)?.map((product) => (
-                <Product key={product._id} {...product} />
-              ))}
-            </div>
+        <Fade bottom distance="40px">
+          <div className="title">
+            <span className="text-lg uppercase text-gray-400">
+              We got a new Products in the weeks
+            </span>
+            <h2 className="text-3xl uppercase text-gray-700 font-semibold">
+              Latest Items
+            </h2>
+          </div>
+        </Fade>
+        <Fade bottom distance="60px">
+          {loading ? (
+            products.length > 0 ? (
+              <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 my-10 items-center flex-wrap  gap-6">
+                {products?.slice(0, 6)?.map((product) => (
+                  <Product key={product._id} {...product} />
+                ))}
+              </div>
+            ) : (
+              "No data found"
+            )
           ) : (
-            "No data found"
-          )
-        ) : (
-          <Loader />
-        )}
-
+            <Loader />
+          )}
+        </Fade>
         <div className="text-right flex justify-end">
           <button
             onClick={() => navigate(`/manage-products`)}

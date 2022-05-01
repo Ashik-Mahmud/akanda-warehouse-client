@@ -1,6 +1,7 @@
 import React from "react";
 import { BiSupport } from "react-icons/bi";
 import { FaEnvelope, FaFacebook, FaTwitter } from "react-icons/fa";
+import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Swal from "sweetalert2";
@@ -39,104 +40,106 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto pt-16">
-        <div className="footer-container flex justify-center text-center sm:text-left sm:justify-between flex-wrap gap-5">
-          <div className="footer-content">
-            <Link
-              to="/"
-              className="text-lg uppercase text-white mb-5 block font-poppins"
-            >
-              Akanda
-            </Link>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/blogs">Blogs</Link>
-              </li>
-              <li>
-                <Link to="/">Privacy & Policy</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </ul>
+      <Fade bottom distance="60px">
+        <div className="container mx-auto pt-16">
+          <div className="footer-container flex justify-center text-center sm:text-left sm:justify-between flex-wrap gap-5">
+            <div className="footer-content">
+              <Link
+                to="/"
+                className="text-lg uppercase text-white mb-5 block font-poppins"
+              >
+                Akanda
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+                <li>
+                  <Link to="/">Privacy & Policy</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-content">
+              <Link
+                to="/"
+                className="text-lg uppercase text-white mb-5 block font-poppins"
+              >
+                About
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/about">About us</Link>
+                </li>
+                <li>
+                  <Link to="/blogs">Terms & Services</Link>
+                </li>
+                <li>
+                  <Link to="/">Latest News</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-content">
+              <Link
+                to="/"
+                className="text-lg uppercase text-white mb-5 block font-poppins"
+              >
+                Contact
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/">Help Center</Link>
+                </li>
+                <li>
+                  <Link to="/">Get Started</Link>
+                </li>
+                <li>
+                  <Link to="/">Contact Us</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-content">
+              <Link
+                to="/"
+                className="text-lg uppercase text-white mb-5 block font-poppins"
+              >
+                Help
+              </Link>
+              <ul>
+                <li>
+                  <Link to="/">
+                    <FaFacebook />
+                    Facebook
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/">
+                    <FaTwitter />
+                    Twitter
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/">
+                    <FaEnvelope />
+                    Email: ashikmahmud@gmail.com
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div className="footer-content">
-            <Link
-              to="/"
-              className="text-lg uppercase text-white mb-5 block font-poppins"
-            >
-              About
-            </Link>
-            <ul>
-              <li>
-                <Link to="/about">About us</Link>
-              </li>
-              <li>
-                <Link to="/blogs">Terms & Services</Link>
-              </li>
-              <li>
-                <Link to="/">Latest News</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-content">
-            <Link
-              to="/"
-              className="text-lg uppercase text-white mb-5 block font-poppins"
-            >
-              Contact
-            </Link>
-            <ul>
-              <li>
-                <Link to="/">Help Center</Link>
-              </li>
-              <li>
-                <Link to="/">Get Started</Link>
-              </li>
-              <li>
-                <Link to="/">Contact Us</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-content">
-            <Link
-              to="/"
-              className="text-lg uppercase text-white mb-5 block font-poppins"
-            >
-              Help
-            </Link>
-            <ul>
-              <li>
-                <Link to="/">
-                  <FaFacebook />
-                  Facebook
-                </Link>
-              </li>
-              <li>
-                <Link to="/">
-                  <FaTwitter />
-                  Twitter
-                </Link>
-              </li>
-              <li>
-                <Link to="/">
-                  <FaEnvelope />
-                  Email: ashikmahmud@gmail.com
-                </Link>
-              </li>
-            </ul>
+          <div className="copyright-text py-20 text-center text-gray-300">
+            <p>
+              &copy; Copyright by {new Date().getFullYear()} by{" "}
+              <span className="text-sky-500">warehouse</span>
+            </p>
           </div>
         </div>
-        <div className="copyright-text py-20 text-center text-gray-300">
-          <p>
-            &copy; Copyright by {new Date().getFullYear()} by{" "}
-            <span className="text-sky-500">warehouse</span>
-          </p>
-        </div>
-      </div>
+      </Fade>
     </FooterContainer>
   );
 };

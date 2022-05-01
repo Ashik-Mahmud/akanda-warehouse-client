@@ -24,7 +24,7 @@ const useCurrentUserProduct = () => {
         });
     })();
   }, []);
-  return { currentUserProduct, loading };
+  return { currentUserProduct, loading, setCurrentUserProduct };
 };
 
 export default useCurrentUserProduct;

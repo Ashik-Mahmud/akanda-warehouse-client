@@ -1,6 +1,13 @@
 import React from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-const Item = ({ imageUrl, name, stockQty, price }) => {
+const Item = ({
+  _id,
+  imageUrl,
+  name,
+  stockQty,
+  price,
+  handleDeleteMyItemsProduct,
+}) => {
   return (
     <div className="shadow-sm rounded-md p-5 border mb-10 bg-white">
       <div className="image -mt-16 bg-white w-24 h-24 p-2 relative left-1/2 -translate-x-1/2 overflow-hidden border-gray-100 border rounded-full">
@@ -19,7 +26,10 @@ const Item = ({ imageUrl, name, stockQty, price }) => {
           <button className="w-8 h-8 grid place-items-center bg-sky-500 rounded text-white">
             <FaEdit />
           </button>
-          <button className="w-8 h-8 grid place-items-center bg-red-400 text-white rounded">
+          <button
+            onClick={() => handleDeleteMyItemsProduct(_id)}
+            className="w-8 h-8 grid place-items-center bg-red-400 text-white rounded"
+          >
             <FaTrashAlt />
           </button>
         </div>

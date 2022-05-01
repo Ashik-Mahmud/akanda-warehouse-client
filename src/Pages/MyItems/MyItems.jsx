@@ -1,13 +1,52 @@
+import axios from "axios";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
 import useCurrentUserProduct from "../../Hooks/useCurrentUserProduct";
+import useProducts from "../../Hooks/useProducts";
 import Item from "./Item/Item";
 const MyItems = () => {
   const navigate = useNavigate();
-  const { currentUserProduct, loading } = useCurrentUserProduct();
+  const { products } = useProducts();
+  const { currentUserProduct, loading, setCurrentUserProduct } =
+    useCurrentUserProduct();
+  /* Handle Delete Product from My Items */
+  const handleDeleteMyItemsProduct = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `http://localhost:5000/current-user-product?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            {
+              headers: {
+                authorization: `Bearer ${sessionStorage.getItem(
+                  "accessToken"
+                )}`,
+              },
+            }
+          )
+          .then((res) => {
+            Swal.fire("Deleted!", `${res.data.message}`, "success");
+            const restProducts = products.filter(
+              (product) => product._id !== id
+            );
+            setCurrentUserProduct(restProducts);
+          });
+      }
+    });
+  };
+
   return (
     <section className="my-items">
       <div className="container">
@@ -37,7 +76,11 @@ const MyItems = () => {
           currentUserProduct.length > 0 ? (
             <div className="items-container grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-7 py-10">
               {currentUserProduct.map((product) => (
-                <Item key={product._id} {...product} />
+                <Item
+                  handleDeleteMyItemsProduct={handleDeleteMyItemsProduct}
+                  key={product._id}
+                  {...product}
+                />
               ))}
             </div>
           ) : (

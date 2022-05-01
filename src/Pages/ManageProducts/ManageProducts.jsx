@@ -2,8 +2,11 @@ import React from "react";
 import { BsPlus, BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Loader from "../../Components/Loader/Loader";
+import useProducts from "../../Hooks/useProducts";
 const ManageProducts = () => {
   const navigate = useNavigate();
+  const { products, loading } = useProducts();
   return (
     <ManageProductsContainer className="p-5">
       <div className="container">
@@ -21,91 +24,56 @@ const ManageProducts = () => {
           </button>
         </div>
         <div className="table-wrapper bg-white p-10 border shadow-sm rounded overflow-auto">
-          <table className="w-full text-left">
-            <thead className="bg-gray-100">
-              <tr>
-                <th>ID</th>
-                <th width={300}>Name </th>
-                <th> Price </th>
-                <th> Stock </th>
-                <th> Supplier </th>
-                <th> Image </th>
-                <th width={120}> Status </th>
-                <th width={120}> Delete </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Laptop</td>
-                <td>443$ </td>
-                <td>434pcs</td>
-                <td>Ashik Mahmud</td>
-                <td>
-                  <img
-                    width={40}
-                    className="rounded border w-14"
-                    src="https://static-01.daraz.com.bd/p/9eb4281b7d9f084cec2d8e86fbc16259.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <span className="text-sky-500">Active</span>
-                </td>
-                <td>
-                  <button className="bg-red-400 text-white p-2">
-                    <BsTrash />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Laptop</td>
-                <td>443$ </td>
-                <td>434pcs</td>
-                <td>Ashik Mahmud</td>
-                <td>
-                  <img
-                    width={40}
-                    className="rounded border w-14"
-                    src="https://static-01.daraz.com.bd/p/9eb4281b7d9f084cec2d8e86fbc16259.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <span className="text-sky-500">Active</span>
-                </td>
-                <td>
-                  <button className="bg-red-400 text-white p-2">
-                    <BsTrash />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Laptop</td>
-                <td>443$ </td>
-                <td>434pcs</td>
-                <td>Ashik Mahmud</td>
-                <td>
-                  <img
-                    width={40}
-                    className="rounded border w-14"
-                    src="https://static-01.daraz.com.bd/p/9eb4281b7d9f084cec2d8e86fbc16259.jpg"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <span className="text-sky-500">Active</span>
-                </td>
-                <td>
-                  <button className="bg-red-400 text-white p-2">
-                    <BsTrash />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          {loading ? (
+            products.length > 0 ? (
+              <table className="w-full text-left">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th>ID</th>
+                    <th width={300}>Name </th>
+                    <th> Price </th>
+                    <th> Stock </th>
+                    <th> Supplier </th>
+                    <th> Image </th>
+                    <th width={120}> Status </th>
+                    <th width={120}> Delete </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {products?.map((product) => (
+                    <tr key={product._id}>
+                      <td>{product?._id.slice(20, 25)}</td>
+                      <td>{product?.name}</td>
+                      <td>{product?.price}$ </td>
+                      <td>{product?.stockQty}pcs</td>
+                      <td>{product?.supplierName}</td>
+                      <td>
+                        <img
+                          width={40}
+                          className="rounded border w-14"
+                          src={product?.imageUrl}
+                          alt={product?.name}
+                        />
+                      </td>
+                      <td>
+                        <span className="text-sky-500">Active</span>
+                      </td>
+                      <td>
+                        <button className="bg-red-400 text-white p-2">
+                          <BsTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              "No data found."
+            )
+          ) : (
+            <Loader />
+          )}
+
           <div className="pagination flex justify-end gap-1 my-3 items-center">
             <button className="p-2 px-4 bg-sky-500 text-white">1</button>
             <button className="p-2 px-4 bg-gray-100">2</button>

@@ -1,10 +1,12 @@
 import React from "react";
 import { BsBoxArrowDownRight } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "../../../Components/Loader/Loader";
 import Product from "../../../Components/Product/Product";
 import useProducts from "../../../Hooks/useProducts";
 const ProductItems = () => {
+  const navigate = useNavigate();
   const { products, loading } = useProducts();
   return (
     <ProductItemsContainer className="py-20 bg-white bg-gradient-to-t">
@@ -32,7 +34,10 @@ const ProductItems = () => {
         )}
 
         <div className="text-right flex justify-end">
-          <button className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-sky-500 px-5 py-2 rounded">
+          <button
+            onClick={() => navigate(`/manage-products`)}
+            className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-sky-500 px-5 py-2 rounded"
+          >
             All Inventories Product <BsBoxArrowDownRight />
           </button>
         </div>

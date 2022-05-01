@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { BsPlus, BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -10,8 +10,14 @@ import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
 const ManageProducts = () => {
   const navigate = useNavigate();
-  const { products, loading, setProducts } = useProducts();
-
+  const [limit, setLimit] = useState(5);
+  const [page, setPage] = useState(0);
+  const { products, loading, setProducts, totalItems } = useProducts(
+    limit,
+    page
+  );
+  const totalPage = Math.ceil(totalItems / limit);
+  console.log(totalPage);
   /* handle delete product  */
   const handleDeleteProduct = async (id) => {
     Swal.fire({
@@ -121,11 +127,23 @@ const ManageProducts = () => {
           )}
 
           <div className="pagination flex justify-end gap-1 my-3 items-center">
-            <button className="p-2 px-4 bg-sky-500 text-white">1</button>
-            <button className="p-2 px-4 bg-gray-100">2</button>
-            <button className="p-2 px-4 bg-gray-100">3</button>
-            <button className="p-2 px-4 bg-gray-100">4</button>
-            <select name="page" className="p-2 px-4 bg-gray-100" id="page">
+            {[...Array(totalPage).keys()].map((num) => (
+              <button
+                key={num}
+                onClick={() => setPage(num)}
+                className={`p-2 px-4 bg-gray-100 ${
+                  page === num && "bg-sky-500 text-white"
+                }`}
+              >
+                {num + 1}
+              </button>
+            ))}
+            <select
+              name="page"
+              className="p-2 px-4 bg-gray-100"
+              id="page"
+              onChange={(event) => setLimit(event.target.value)}
+            >
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="15">15</option>

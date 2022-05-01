@@ -80,7 +80,6 @@ export const AddProduct = () => {
         authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       })
       .then((res) => {
-        console.log(res.data);
         toast.success(res.data.message);
         event.target.reset();
       })

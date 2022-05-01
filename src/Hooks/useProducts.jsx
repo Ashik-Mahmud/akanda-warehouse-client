@@ -16,7 +16,7 @@ const useProducts = () => {
         });
     })();
   }, []);
-  return { products, loading };
+  return { products, loading, setProducts };
 };
 
 export default useProducts;

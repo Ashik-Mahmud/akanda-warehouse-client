@@ -1,12 +1,55 @@
+import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 import { BsPlus, BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 import Loader from "../../Components/Loader/Loader";
+import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
 const ManageProducts = () => {
   const navigate = useNavigate();
-  const { products, loading } = useProducts();
+  const { products, loading, setProducts } = useProducts();
+
+  /* handle delete product  */
+  const handleDeleteProduct = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `http://localhost:5000/product?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            {
+              headers: {
+                authorization: `Bearer ${sessionStorage.getItem(
+                  "accessToken"
+                )}`,
+              },
+            }
+          )
+          .then((res) => {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            toast.success(res.data.message);
+            const restProducts = products.filter(
+              (product) => product._id !== id
+            );
+            setProducts(restProducts);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+  };
+
   return (
     <ManageProductsContainer className="p-5">
       <div className="container">
@@ -59,7 +102,10 @@ const ManageProducts = () => {
                         <span className="text-sky-500">Active</span>
                       </td>
                       <td>
-                        <button className="bg-red-400 text-white p-2">
+                        <button
+                          onClick={() => handleDeleteProduct(product?._id)}
+                          className="bg-red-400 text-white p-2"
+                        >
                           <BsTrash />
                         </button>
                       </td>

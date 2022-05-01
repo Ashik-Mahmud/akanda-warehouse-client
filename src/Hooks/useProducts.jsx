@@ -8,7 +8,6 @@ const useProducts = () => {
       await axios
         .get(`http://localhost:5000/products`)
         .then((res) => {
-          console.log(res.data);
           setLoading(true);
           setProducts(res.data.result);
         })

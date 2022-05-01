@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { auth } from "../../../Firebase/Firebase.config";
 import useProducts from "../../../Hooks/useProducts";
 
 const Hero = () => {
@@ -30,12 +31,20 @@ const Hero = () => {
               do it.
             </p>
             <div className="btn-groups flex flex-wrap justify-center md:justify-start items-center gap-3">
-              <button className="bg-sky-500 px-6 py-3 rounded text-white active:scale-95 transition-all">
-                Best Selling
-              </button>
-              <button className="px-7  hover:bg-sky-500 hover:text-white py-3 border rounded border-sky-500 text-sky-500 transition-all">
-                Start Buy
-              </button>
+              <a
+                href="#best"
+                className="bg-sky-500 px-6 py-3 rounded text-white active:scale-95 transition-all"
+              >
+                Latest Products
+              </a>
+              {auth?.currentUser && (
+                <button
+                  onClick={() => navigate(`/add-product`)}
+                  className="px-7  hover:bg-sky-500 hover:text-white py-3 border rounded border-sky-500 text-sky-500 transition-all"
+                >
+                  Add Product
+                </button>
+              )}
             </div>
           </div>
           <div className="hero-image w-full md:w-2/5 ">

@@ -17,7 +17,7 @@ const ManageProducts = () => {
     page
   );
   const totalPage = Math.ceil(totalItems / limit);
-  console.log(totalPage);
+
   /* handle delete product  */
   const handleDeleteProduct = async (id) => {
     Swal.fire({

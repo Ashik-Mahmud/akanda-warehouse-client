@@ -9,7 +9,10 @@ const ProductItems = () => {
   const navigate = useNavigate();
   const { products, loading } = useProducts();
   return (
-    <ProductItemsContainer className="py-20 bg-white bg-gradient-to-t">
+    <ProductItemsContainer
+      id="best"
+      className="py-20 bg-white bg-gradient-to-t"
+    >
       <div className="container">
         <div className="title">
           <span className="text-lg uppercase text-gray-400">

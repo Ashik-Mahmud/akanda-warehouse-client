@@ -12,6 +12,7 @@ import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login/Login';
 import SignUp from './Pages/Login/SignUp/SignUp';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
+import EditProduct from './Pages/MyItems/EditProduct/EditProduct';
 import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Shared/Footer/Footer';
@@ -40,6 +41,8 @@ function App() {
         <Route path='/my-items' element={<RequireAuth><MyItems /></RequireAuth>} />
         <Route path='/inventory/:inventoryId' element={<RequireAuth><Inventory /></RequireAuth>} />
         <Route path='/add-product' element={<RequireAuth><AddProduct /></RequireAuth>} />
+        <Route path='/edit-product/:productId' element={<RequireAuth><EditProduct /></RequireAuth>} />
+
 
         {/* not found route  */}
         <Route path='*' element={<NotFound />} />

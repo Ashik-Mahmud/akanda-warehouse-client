@@ -1,5 +1,6 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -13,6 +14,7 @@ const MyItems = () => {
   const { products } = useProducts();
   const { currentUserProduct, loading, setCurrentUserProduct } =
     useCurrentUserProduct();
+  const [search, setSearch] = useState("");
   /* Handle Delete Product from My Items */
   const handleDeleteMyItemsProduct = async (id) => {
     Swal.fire({
@@ -47,6 +49,18 @@ const MyItems = () => {
     });
   };
 
+  /* Handle Search */
+  const handleSearch = async () => {
+    if (!search) return toast.error("Search field is required.");
+    await axios
+      .get(
+        `http://localhost:5000/search?id=${auth?.currentUser?.uid}&&search=${search}`
+      )
+      .then((res) => {
+        setCurrentUserProduct(res.data.result);
+      });
+  };
+
   return (
     <section className="my-items">
       <div className="container">
@@ -62,12 +76,16 @@ const MyItems = () => {
           </div>
           <div className="bg-white p-2 flex items-stretch mt-2">
             <input
+              onChange={(event) => setSearch(event.target.value)}
               className="p-3 outline-none text-lg"
               type="search"
               placeholder="Search"
               id="search"
             />
-            <button className="bg-sky-500 px-5 text-white">
+            <button
+              onClick={handleSearch}
+              className="bg-sky-500 px-5 text-white"
+            >
               <BsSearch />
             </button>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import required modules
 import { EffectCards } from "swiper";
@@ -6,8 +7,11 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import useProducts from "../../../Hooks/useProducts";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { products } = useProducts();
   return (
     <HeroContainer className="bg-slate-50">
       <div className="container">
@@ -41,114 +45,28 @@ const Hero = () => {
               modules={[EffectCards]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
+              {products.map((product) => (
+                <SwiperSlide key={product._id}>
+                  <div className="image">
+                    <img src={product?.imageUrl} alt={product?.name} />
                   </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
+                  <div className="details  p-2">
+                    <h3 className="text-xl ">
+                      {product?.name.slice(0, 26) + "..."}{" "}
+                    </h3>
+                    <div className="inner-details flex justify-between items-center my-1">
+                      <span className="text-sky-500">${product?.price}</span>
+                      <span>{product?.stockQty}pcs</span>
+                    </div>
+                    <button
+                      onClick={() => navigate(`/inventory/${product?._id}`)}
+                      className="bg-gray-300 px-3 py-1 mt-1 rounded"
+                    >
+                      Update
+                    </button>
                   </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
-                  </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
-                  </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
-                  </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="image">
-                  <img
-                    src="https://m.media-amazon.com/images/I/71h6PpGaz9L._AC_SL1500_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="details  p-2">
-                  <h3 className="text-2xl ">Laptop</h3>
-                  <div className="inner-details flex justify-between items-center my-1">
-                    <span className="text-sky-500">$343</span>
-                    <span>20pcs</span>
-                  </div>
-                  <button className="bg-gray-300 px-3 py-1 mt-1 rounded">
-                    Update
-                  </button>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
             <h1 className="text-2xl text-center my-6 font-semibold">
               Best Selling{" "}

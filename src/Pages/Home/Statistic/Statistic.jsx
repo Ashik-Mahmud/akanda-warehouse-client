@@ -5,7 +5,7 @@ const Statistic = () => {
   const { products } = useProducts();
 
   const totalMoney = products.reduce(
-    (acc, product) => Number(product.price) + acc,
+    (acc, product) => Number(product.price) * Number(product.stockQty) + acc,
     0
   );
   const totalStock = products.reduce(

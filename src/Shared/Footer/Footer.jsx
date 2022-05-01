@@ -3,14 +3,36 @@ import { BiSupport } from "react-icons/bi";
 import { FaEnvelope, FaFacebook, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Swal from "sweetalert2";
+import { auth } from "../../Firebase/Firebase.config";
 const Footer = () => {
+  /* Handle Get Support  */
+  const handleGetSupport = () => {
+    if (!auth?.currentUser) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "To get support you should login first.!",
+        footer:
+          '<a href="/login" class="p-1 px-2 rounded bg-sky-400 text-white">Login</a>',
+      });
+    }
+    Swal.fire(
+      "Thanks for your support request!",
+      `We will know you when will start of our support session on your ${auth?.currentUser?.email}. Don't worry!`,
+      "success"
+    );
+  };
   return (
     <FooterContainer className="bg-gray-700">
       <div className="footer-upper p-8 bg-gray-100">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-center gap-3 sm:justify-between flex-wrap ">
             <h1 className="text-2xl">Get ready our support team 24/7.</h1>
-            <button className="transition-all px-6 py-4 bg-sky-500 text-white rounded-md flex items-center gap-2 active:translate-y-1">
+            <button
+              onClick={handleGetSupport}
+              className="transition-all px-6 py-4 bg-sky-500 text-white rounded-md flex items-center gap-2 active:translate-y-1"
+            >
               {" "}
               <BiSupport /> Get Support
             </button>

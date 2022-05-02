@@ -8,11 +8,14 @@ export const useCurrentUserBlogs = () => {
   useEffect(() => {
     (async () => {
       await axios
-        .get(`http://localhost:5000/user-blogs?uid=${auth?.currentUser?.uid}`, {
-          headers: {
-            authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-          },
-        })
+        .get(
+          `https://akanda-warehouse-server.herokuapp.com/user-blogs?uid=${auth?.currentUser?.uid}`,
+          {
+            headers: {
+              authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+            },
+          }
+        )
         .then((res) => {
           setCurrentUserBlogs(res.data.result);
           setLoading(true);

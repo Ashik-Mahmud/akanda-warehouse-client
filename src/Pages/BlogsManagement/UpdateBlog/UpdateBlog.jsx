@@ -32,7 +32,7 @@ const UpdateBlog = () => {
     };
     await axios
       .put(
-        `http://localhost:5000/blogs?id=${blogId}&&uid=${auth?.currentUser?.uid}`,
+        `https://akanda-warehouse-server.herokuapp.com/blogs?id=${blogId}&&uid=${auth?.currentUser?.uid}`,
         {
           data: blogData,
           authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,

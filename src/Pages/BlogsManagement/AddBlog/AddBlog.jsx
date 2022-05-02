@@ -31,7 +31,7 @@ const AddBlog = () => {
       date: new Date().toDateString(),
     };
     await axios
-      .post(`http://localhost:5000/blogs`, {
+      .post(`https://akanda-warehouse-server.herokuapp.com/blogs`, {
         data: blogData,
         authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       })

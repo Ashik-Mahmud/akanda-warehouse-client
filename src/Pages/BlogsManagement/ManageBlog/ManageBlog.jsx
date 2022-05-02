@@ -25,7 +25,7 @@ const ManageBlog = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `http://localhost:5000/blogs?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            `https://akanda-warehouse-server.herokuapp.com/blogs?id=${id}&&userId=${auth?.currentUser?.uid}`,
             {
               headers: {
                 authorization: `Bearer ${sessionStorage.getItem(

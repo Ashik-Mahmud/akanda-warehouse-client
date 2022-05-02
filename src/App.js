@@ -1,8 +1,10 @@
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import RequireAuth from './Auth/RequireAuth';
+import { auth } from './Firebase/Firebase.config';
+import Token from './Helpers/Token';
 import useFirebase from './Hooks/useFirebase';
 import About from './Pages/About/About';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
@@ -25,6 +27,11 @@ import Header from './Shared/Header/Header';
 export const AppContext = createContext(null)
 function App() {
     const {user, isAuth} = useFirebase();
+    useEffect(()=>{
+        if(isAuth){
+            Token(auth?.currentUser?.uid)
+        }
+    }, [isAuth])
    
   return (
     <>

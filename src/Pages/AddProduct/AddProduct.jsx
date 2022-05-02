@@ -7,8 +7,10 @@ import { BiMailSend } from "react-icons/bi";
 import { HiSave } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Firebase.config";
+import useTitle from "../../Hooks/useTitle";
 
 export const AddProduct = () => {
+  useTitle("add product");
   const navigate = useNavigate();
   const [isReload, setIsReload] = useState(false);
 

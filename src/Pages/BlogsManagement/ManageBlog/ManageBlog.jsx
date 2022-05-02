@@ -6,7 +6,9 @@ import Swal from "sweetalert2";
 import Loader from "../../../Components/Loader/Loader";
 import { auth } from "../../../Firebase/Firebase.config";
 import { useCurrentUserBlogs } from "../../../Hooks/useCurrentUserBlogs";
+import useTitle from "../../../Hooks/useTitle";
 const ManageBlog = () => {
+  useTitle("Manage blogs");
   const navigate = useNavigate();
   const { currentUserBlogs, setCurrentUserBlogs, loading } =
     useCurrentUserBlogs();

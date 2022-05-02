@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
 import useBlogs from "../../Hooks/useBlogs";
+import useTitle from "../../Hooks/useTitle";
 import Blog from "./Blog/Blog";
 const Blogs = () => {
+  useTitle("Blogs");
   const navigate = useNavigate();
   const { blogs, loading } = useBlogs();
-  console.log(blogs);
+
   return (
     <section className="blogs p-0 md:p-10">
       <div className="container">

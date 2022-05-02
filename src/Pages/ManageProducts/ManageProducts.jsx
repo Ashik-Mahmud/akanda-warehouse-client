@@ -8,7 +8,9 @@ import Swal from "sweetalert2";
 import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
+import useTitle from "../../Hooks/useTitle";
 const ManageProducts = () => {
+  useTitle("Manage products");
   const navigate = useNavigate();
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(0);

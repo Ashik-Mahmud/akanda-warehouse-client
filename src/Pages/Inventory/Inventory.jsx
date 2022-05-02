@@ -6,6 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "../../Components/Loader/Loader";
 import useProducts from "../../Hooks/useProducts";
+import useTitle from "../../Hooks/useTitle";
 import Modal from "./Modal/Modal";
 const Inventory = () => {
   const [modal, setModal] = useState(false);
@@ -21,6 +22,9 @@ const Inventory = () => {
   useEffect(() => {
     setStock(currentProduct?.stockQty);
   }, [currentProduct]);
+
+  /* title */
+  useTitle(currentProduct?.name || "loading...");
 
   return (
     <ProductDetailsContainer className="p-10">

@@ -5,9 +5,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../App";
 import { auth } from "../../../Firebase/Firebase.config";
 import Token from "../../../Helpers/Token";
+import useTitle from "../../../Hooks/useTitle";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  useTitle("Sign Up");
   /* if user has so it's redirect on home or desire page */
   const { isAuth } = useContext(AppContext);
   const navigate = useNavigate();

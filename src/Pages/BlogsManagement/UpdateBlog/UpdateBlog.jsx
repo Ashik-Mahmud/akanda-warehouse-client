@@ -4,7 +4,9 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../../../Firebase/Firebase.config";
 import { useCurrentUserBlogs } from "../../../Hooks/useCurrentUserBlogs";
+import useTitle from "../../../Hooks/useTitle";
 const UpdateBlog = () => {
+  useTitle("Update blog");
   const { blogId } = useParams();
   const { currentUserBlogs } = useCurrentUserBlogs();
   const currentBlog = currentUserBlogs.find((blog) => blog._id === blogId);

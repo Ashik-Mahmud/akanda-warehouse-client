@@ -5,8 +5,10 @@ import { HiSave } from "react-icons/hi";
 import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../../../Firebase/Firebase.config";
 import useCurrentUserProduct from "../../../Hooks/useCurrentUserProduct";
+import useTitle from "../../../Hooks/useTitle";
 
 const EditProduct = () => {
+  useTitle("Edit Item");
   const { productId } = useParams();
   const { currentUserProduct } = useCurrentUserProduct();
   const navigate = useNavigate();

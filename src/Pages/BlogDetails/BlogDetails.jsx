@@ -3,11 +3,13 @@ import { BsChevronDoubleLeft } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../Components/Loader/Loader";
 import useBlogs from "../../Hooks/useBlogs";
+import useTitle from "../../Hooks/useTitle";
 const BlogDetails = () => {
   const navigate = useNavigate();
   const { blogs, loading } = useBlogs();
   const { BlogId } = useParams();
   const currentBlog = blogs.find((blog) => blog._id === BlogId);
+  useTitle(currentBlog?.title || "loading...");
 
   return (
     <div className="p-10">

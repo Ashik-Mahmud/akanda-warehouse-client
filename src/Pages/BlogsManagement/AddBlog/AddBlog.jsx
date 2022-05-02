@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { auth } from "../../../Firebase/Firebase.config";
+import useTitle from "../../../Hooks/useTitle";
 const AddBlog = () => {
+  useTitle("Add Blog");
   /* handle Add blogs */
   const [blogInput, setBlogInput] = useState({
     title: "",

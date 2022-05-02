@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../Hooks/useTitle";
 
 const NotFound = () => {
+  useTitle("Not found page");
   return (
     <div className="text-center py-20 grid place-items-center bg-[#FAFAFA]">
       <img

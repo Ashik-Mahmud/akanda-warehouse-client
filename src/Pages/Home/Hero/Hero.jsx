@@ -54,14 +54,14 @@ const Hero = () => {
           </Fade>
           <Zoom right>
             <div className="hero-image w-full md:w-2/5 ">
-              <Swiper
-                effect={"cards"}
-                grabCursor={true}
-                modules={[EffectCards]}
-                className="mySwiper"
-              >
-                {loading ? (
-                  products?.slice(0, 12).map((product) => (
+              {loading ? (
+                <Swiper
+                  effect={"cards"}
+                  grabCursor={true}
+                  modules={[EffectCards]}
+                  className="mySwiper"
+                >
+                  {products?.slice(0, 12).map((product) => (
                     <SwiperSlide key={product._id}>
                       <div className="image">
                         <img src={product?.imageUrl} alt={product?.name} />
@@ -84,11 +84,11 @@ const Hero = () => {
                         </button>
                       </div>
                     </SwiperSlide>
-                  ))
-                ) : (
-                  <Loader />
-                )}
-              </Swiper>
+                  ))}
+                </Swiper>
+              ) : (
+                <Loader />
+              )}
               <h1 className="text-2xl text-center my-6 font-semibold">
                 Check Out Top 12 Products{" "}
               </h1>

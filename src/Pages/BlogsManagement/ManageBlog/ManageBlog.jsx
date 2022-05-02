@@ -52,7 +52,7 @@ const ManageBlog = () => {
   return (
     <div className="manage-blogs">
       <div className="container my-10">
-        <div className="table-wrapper p-5 shadow rounded overflow-scroll">
+        <div className="table-wrapper p-5 shadow rounded overflow-x-scroll md:overflow-x-hidden">
           {loading ? (
             <table className="w-full my-3 text-left">
               <thead className="bg-slate-100">

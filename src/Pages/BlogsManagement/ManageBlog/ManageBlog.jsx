@@ -1,9 +1,50 @@
+import axios from "axios";
 import React from "react";
 import { BiEdit, BiTrash } from "react-icons/bi";
+import Swal from "sweetalert2";
 import Loader from "../../../Components/Loader/Loader";
+import { auth } from "../../../Firebase/Firebase.config";
 import { useCurrentUserBlogs } from "../../../Hooks/useCurrentUserBlogs";
 const ManageBlog = () => {
-  const { currentUserBlogs, loading } = useCurrentUserBlogs();
+  const { currentUserBlogs, setCurrentUserBlogs, loading } =
+    useCurrentUserBlogs();
+
+  /* Handle Blog Delete */
+  const handleDeleteBlog = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `http://localhost:5000/blogs?id=${id}&&userId=${auth?.currentUser?.uid}`,
+            {
+              headers: {
+                authorization: `Bearer ${sessionStorage.getItem(
+                  "accessToken"
+                )}`,
+              },
+            }
+          )
+          .then((res) => {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            const restBlogs = currentUserBlogs.filter(
+              (blog) => blog._id !== id
+            );
+            setCurrentUserBlogs(restBlogs);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+  };
   return (
     <div className="manage-blogs">
       <div className="container my-10">
@@ -14,7 +55,7 @@ const ManageBlog = () => {
                 <tr>
                   <th>ID</th>
                   <th>Date</th>
-                  <th>Title</th>
+                  <th width="500">Title</th>
                   <th>Category</th>
                   <th>Image</th>
                   <th>status</th>
@@ -25,7 +66,7 @@ const ManageBlog = () => {
               <tbody>
                 {currentUserBlogs.map((blog) => (
                   <tr key={blog._id}>
-                    <td>1</td>
+                    <td>{blog._id.slice(10, 15)}</td>
                     <td>{blog?.date}</td>
                     <td>{blog?.title}</td>
                     <td>{blog?.category}</td>
@@ -44,7 +85,10 @@ const ManageBlog = () => {
                       </button>
                     </td>
                     <td>
-                      <button>
+                      <button
+                        onClick={() => handleDeleteBlog(blog._id)}
+                        className="text-red-500"
+                      >
                         <BiTrash />
                       </button>
                     </td>

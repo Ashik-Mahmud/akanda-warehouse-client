@@ -14,11 +14,10 @@ export const useCurrentUserBlogs = () => {
           },
         })
         .then((res) => {
-          console.log(res.data);
           setCurrentUserBlogs(res.data.result);
           setLoading(true);
         });
     })();
   }, []);
-  return { currentUserBlogs, loading };
+  return { currentUserBlogs, setCurrentUserBlogs, loading };
 };

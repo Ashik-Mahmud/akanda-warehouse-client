@@ -17,6 +17,8 @@ const Modal = ({
   /* Handle Delivery count  */
   const handleDeliveryCount = async () => {
     if (!delivery) return toast.error("Stock Quantity field is required.");
+    if (delivery < 1)
+      return toast.error("Stock Quantity must be positive number");
     if (delivery > stock)
       return toast.error(
         `You can't deliver more than of your stock. available ${stock}`
@@ -47,6 +49,7 @@ const Modal = ({
   const [restock, setRestock] = useState(0);
   const handleUpdateStock = async () => {
     if (!restock) return toast.error(`Update Stock field is required.`);
+    if (restock < 1) return toast.error("Stock must be positive number");
     setStock((prev) => prev + Number(restock));
     await axios
       .put(
@@ -89,7 +92,7 @@ const Modal = ({
           <form action="" ref={formRef}>
             <div className="input-group flex gap-2 flex-col">
               <label htmlFor="quantity">
-                {isDelivery ? "Quantity" : "Update Stock"}
+                {isDelivery ? "Quantity" : "Stock"}
               </label>
               {isDelivery ? (
                 <input

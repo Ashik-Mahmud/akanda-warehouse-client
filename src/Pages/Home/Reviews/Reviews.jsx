@@ -93,13 +93,20 @@ const Reviews = () => {
 };
 const ReviewsContainer = styled.section`
   position: relative;
+  overflow-x: hidden;
   .swiper-wrapper {
     padding: 3rem 0rem;
+    @media (max-width: 500px) {
+      padding: 2rem 0rem;
+    }
   }
   .swiper-slide {
     display: grid;
     place-items: center;
     padding: 2rem;
+    @media (max-width: 500px) {
+      padding: 2rem 0rem;
+    }
   }
 `;
 export default Reviews;

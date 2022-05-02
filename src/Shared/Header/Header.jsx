@@ -30,6 +30,12 @@ const Header = () => {
           </Link>
           <menu className="primary-menu flex items-center">
             <ul className={`flex items-center gap-8 ${menu ? "active" : ""}`}>
+              <div
+                className="close-btn absolute right-4 top-4"
+                onClick={() => setMenu(false)}
+              >
+                <MdClose className="text-2xl" />
+              </div>
               <li>
                 <NavLink className="text-lg" to="/">
                   Home
@@ -142,6 +148,9 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.header`
+  .close-btn {
+    display: none;
+  }
   position: relative;
   a.active {
     color: var(--primary-color);
@@ -154,6 +163,7 @@ const HeaderContainer = styled.header`
       background: #fff;
       opacity: 0;
       z-index: 1;
+      width: 180px;
       pointer-events: none;
       transform: translateY(15px);
       transition: all 0.5s ease;
@@ -173,17 +183,19 @@ const HeaderContainer = styled.header`
       display: none;
     }
     @media (max-width: 1268px) {
-      ul {
+      .close-btn {
+        display: block;
+      }
+      & > ul {
         flex-direction: column;
-        position: absolute;
-        width: 300px;
-        background-color: #fff;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
+        position: fixed;
+        width: 60%;
+        background-color: #ffffffd4;
+        backdrop-filter: blur(5px);
+        top: 0%;
+        left: -100%;
+        height: 100%;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        pointer-events: none;
         padding: 2rem;
         gap: 1rem;
         justify-content: center;
@@ -195,8 +207,7 @@ const HeaderContainer = styled.header`
 
         &.active {
           opacity: 1;
-          pointer-events: all;
-          transform: translateX(-50%) translateY(10px);
+          left: 0%;
         }
       }
       .menu-icon {
@@ -204,14 +215,7 @@ const HeaderContainer = styled.header`
       }
     }
   }
-  @media (max-width: 460px) {
-    .primary-menu {
-      position: relative;
-      ul {
-        width: 240px;
-        left: -40%;
-      }
-    }
+  @media (max-width: 660px) {
     .profile {
       position: relative;
       .details {

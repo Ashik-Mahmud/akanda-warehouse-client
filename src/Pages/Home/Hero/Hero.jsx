@@ -105,13 +105,16 @@ const HeroContainer = styled.section`
     width: 400px;
     height: 450px;
     @media (max-width: 500px) {
-      width: 200px;
+      width: 280px;
       height: auto;
       .swiper-slide {
         .image {
           height: 160px;
         }
       }
+    }
+    @media (max-width: 400px) {
+      width: 200px;
     }
   }
 

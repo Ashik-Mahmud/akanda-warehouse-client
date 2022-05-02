@@ -27,7 +27,7 @@ const Inventory = () => {
   useTitle(currentProduct?.name || "loading...");
 
   return (
-    <ProductDetailsContainer className="p-10">
+    <ProductDetailsContainer className="sm:p-10">
       <Modal
         modal={modal}
         setModal={setModal}
@@ -39,7 +39,7 @@ const Inventory = () => {
       />
       <div className="container">
         {loading ? (
-          <div className="card shadow-md rounded p-10">
+          <div className="card shadow-md rounded p-4 sm:p-10">
             <div className="card-header flex justify-between flex-wrap gap-3">
               <div className="flex items-center gap-2">
                 <BsChevronDoubleLeft

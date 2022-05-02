@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
       <Fade bottom distance="60px">
         <div className="container mx-auto pt-16">
-          <div className="footer-container flex justify-center text-center sm:text-left sm:justify-between flex-wrap gap-5">
+          <div className="footer-container flex justify-center text-center flex-col sm:flex-row sm:text-left sm:justify-between flex-wrap gap-5">
             <div className="footer-content">
               <Link
                 to="/"

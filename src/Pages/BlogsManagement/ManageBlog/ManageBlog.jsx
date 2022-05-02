@@ -54,54 +54,66 @@ const ManageBlog = () => {
       <div className="container my-10">
         <div className="table-wrapper p-5 shadow rounded overflow-x-scroll md:overflow-x-hidden">
           {loading ? (
-            <table className="w-full my-3 text-left">
-              <thead className="bg-slate-100">
-                <tr>
-                  <th>ID</th>
-                  <th>Date</th>
-                  <th width="500">Title</th>
-                  <th>Category</th>
-                  <th>Image</th>
-                  <th>status</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentUserBlogs.map((blog) => (
-                  <tr key={blog._id}>
-                    <td>{blog._id.slice(10, 15)}</td>
-                    <td>{blog?.date}</td>
-                    <td>{blog?.title}</td>
-                    <td>{blog?.category}</td>
-                    <td>
-                      <img
-                        src={blog?.imageUrl}
-                        alt="img"
-                        className="rounded"
-                        width={60}
-                      />
-                    </td>
-                    <td>Active</td>
-                    <td>
-                      <button
-                        onClick={() => navigate(`/update-blog/${blog._id}`)}
-                      >
-                        <BiEdit />
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => handleDeleteBlog(blog._id)}
-                        className="text-red-500"
-                      >
-                        <BiTrash />
-                      </button>
-                    </td>
+            currentUserBlogs.length > 0 ? (
+              <table className="w-full my-3 text-left">
+                <thead className="bg-slate-100">
+                  <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th width="500">Title</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                    <th>status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {currentUserBlogs.map((blog) => (
+                    <tr key={blog._id}>
+                      <td>{blog._id.slice(10, 15)}</td>
+                      <td>{blog?.date}</td>
+                      <td>{blog?.title}</td>
+                      <td>{blog?.category}</td>
+                      <td>
+                        <img
+                          src={blog?.imageUrl}
+                          alt="img"
+                          className="rounded"
+                          width={60}
+                        />
+                      </td>
+                      <td>Active</td>
+                      <td>
+                        <button
+                          onClick={() => navigate(`/update-blog/${blog._id}`)}
+                        >
+                          <BiEdit />
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleDeleteBlog(blog._id)}
+                          className="text-red-500"
+                        >
+                          <BiTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <div className="text-center flex gap-2 flex-col items-center">
+                <h2 className="text-2xl">No blog added yet.</h2>
+                <button
+                  onClick={() => navigate(`/management-blogs/add-blog`)}
+                  className="bg-sky-400 p-2 text-white rounded my-2"
+                >
+                  Add Your First Blog
+                </button>
+              </div>
+            )
           ) : (
             <Loader />
           )}

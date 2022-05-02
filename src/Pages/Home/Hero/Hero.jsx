@@ -61,7 +61,7 @@ const Hero = () => {
                   modules={[EffectCards]}
                   className="mySwiper"
                 >
-                  {products?.slice(0, 12).map((product) => (
+                  {products?.slice(0, 25).map((product) => (
                     <SwiperSlide key={product._id}>
                       <div className="image">
                         <img src={product?.imageUrl} alt={product?.name} />
@@ -90,7 +90,7 @@ const Hero = () => {
                 <Loader />
               )}
               <h1 className="text-2xl text-center my-6 font-semibold">
-                Check Out Top 12 Products{" "}
+                Check Out Top 25 Products{" "}
               </h1>
             </div>
           </Zoom>

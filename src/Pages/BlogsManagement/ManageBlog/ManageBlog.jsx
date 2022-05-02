@@ -1,11 +1,13 @@
 import axios from "axios";
 import React from "react";
 import { BiEdit, BiTrash } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "../../../Components/Loader/Loader";
 import { auth } from "../../../Firebase/Firebase.config";
 import { useCurrentUserBlogs } from "../../../Hooks/useCurrentUserBlogs";
 const ManageBlog = () => {
+  const navigate = useNavigate();
   const { currentUserBlogs, setCurrentUserBlogs, loading } =
     useCurrentUserBlogs();
 
@@ -80,7 +82,9 @@ const ManageBlog = () => {
                     </td>
                     <td>Active</td>
                     <td>
-                      <button>
+                      <button
+                        onClick={() => navigate(`/update-blog/${blog._id}`)}
+                      >
                         <BiEdit />
                       </button>
                     </td>

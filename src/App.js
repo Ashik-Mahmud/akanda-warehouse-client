@@ -11,6 +11,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import AddBlog from './Pages/BlogsManagement/AddBlog/AddBlog';
 import BlogsManagement from './Pages/BlogsManagement/BlogsManagement';
 import ManageBlog from './Pages/BlogsManagement/ManageBlog/ManageBlog';
+import UpdateBlog from './Pages/BlogsManagement/UpdateBlog/UpdateBlog';
 import Home from './Pages/Home/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login/Login';
@@ -52,6 +53,8 @@ function App() {
             <Route path='add-blog' element={<AddBlog />} />
             <Route path='manage-blog' element={<ManageBlog />} />
         </Route>
+        <Route path='/update-blog/:blogId' element={<RequireAuth><UpdateBlog /></RequireAuth>} />
+        
 
 
         {/* not found route  */}

@@ -12,7 +12,7 @@ const Product = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="p-2 shadow rounded relative">
+    <div className="p-2 shadow rounded relative border">
       <div className="badge absolute top-1 right-1 bg-teal-500 text-sm rounded-full text-white px-2 py-1 ">
         New
       </div>

@@ -10,9 +10,10 @@ import "swiper/css/effect-cards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { auth } from "../../../Firebase/Firebase.config";
 import useProducts from "../../../Hooks/useProducts";
+import Loader from "./../../../Components/Loader/Loader";
 const Hero = () => {
   const navigate = useNavigate();
-  const { products } = useProducts();
+  const { products, loading } = useProducts();
   return (
     <HeroContainer className="bg-slate-50">
       <div className="container">
@@ -59,28 +60,34 @@ const Hero = () => {
                 modules={[EffectCards]}
                 className="mySwiper"
               >
-                {products?.slice(0, 12).map((product) => (
-                  <SwiperSlide key={product._id}>
-                    <div className="image">
-                      <img src={product?.imageUrl} alt={product?.name} />
-                    </div>
-                    <div className="details  p-2">
-                      <h3 className="text-xl ">
-                        {product?.name.slice(0, 26) + "..."}{" "}
-                      </h3>
-                      <div className="inner-details flex justify-between items-center my-1">
-                        <span className="text-sky-500">${product?.price}</span>
-                        <span>{product?.stockQty}pcs</span>
+                {loading ? (
+                  products?.slice(0, 12).map((product) => (
+                    <SwiperSlide key={product._id}>
+                      <div className="image">
+                        <img src={product?.imageUrl} alt={product?.name} />
                       </div>
-                      <button
-                        onClick={() => navigate(`/inventory/${product?._id}`)}
-                        className="bg-sky-400 px-3 py-1 mt-1 rounded text-white"
-                      >
-                        Manage
-                      </button>
-                    </div>
-                  </SwiperSlide>
-                ))}
+                      <div className="details  p-2">
+                        <h3 className="text-xl ">
+                          {product?.name.slice(0, 26) + "..."}{" "}
+                        </h3>
+                        <div className="inner-details flex justify-between items-center my-1">
+                          <span className="text-sky-500">
+                            ${product?.price}
+                          </span>
+                          <span>{product?.stockQty}pcs</span>
+                        </div>
+                        <button
+                          onClick={() => navigate(`/inventory/${product?._id}`)}
+                          className="bg-sky-400 px-3 py-1 mt-1 rounded text-white"
+                        >
+                          Manage
+                        </button>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                ) : (
+                  <Loader />
+                )}
               </Swiper>
               <h1 className="text-2xl text-center my-6 font-semibold">
                 Check Out Top 12 Products{" "}

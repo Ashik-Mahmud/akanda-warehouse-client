@@ -63,10 +63,12 @@ const Header = () => {
                     </Link>
                     <ul className="p-4 shadow rounded -left-10 top-8 w-52">
                       <li className="my-2">
-                        <Link to="/">Add Blog</Link>
+                        <Link to="/management-blogs/add-blog">Add Blog</Link>
                       </li>
                       <li className="my-2">
-                        <Link to="/">Blog Management</Link>
+                        <Link to="/management-blogs/manage-blog">
+                          Blog Management
+                        </Link>
                       </li>
                     </ul>
                   </li>

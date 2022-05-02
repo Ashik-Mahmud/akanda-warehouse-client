@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import RequireAuth from './Auth/RequireAuth';
 import useFirebase from './Hooks/useFirebase';
+import About from './Pages/About/About';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
 import BlogDetails from './Pages/BlogDetails/BlogDetails';
 import Blogs from './Pages/Blogs/Blogs';
@@ -34,6 +35,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/blog-details/:BlogId' element={<BlogDetails />} />
+        <Route path='/about' element={<About />} />
 
         {/* login page  */}
         <Route path='/login' element={<Login />} />

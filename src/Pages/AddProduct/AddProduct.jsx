@@ -132,7 +132,7 @@ export const AddProduct = () => {
           <form
             action=""
             onSubmit={handleAddProductForm}
-            className="add-product-wrapper p-8 md:p-20 rounded border shadow bg-white"
+            className="add-product-wrapper p-5 sm:p-8 md:p-20 rounded border shadow bg-white"
           >
             <div className="input-group flex flex-col gap-2">
               <label htmlFor="name">Product Name</label>

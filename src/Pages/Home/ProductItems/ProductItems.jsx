@@ -28,7 +28,7 @@ const ProductItems = () => {
         <Fade bottom distance="60px">
           {loading ? (
             products.length > 0 ? (
-              <div className="products grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 my-10 items-center flex-wrap  gap-6">
+              <div className="products  grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 my-10 items-center flex-wrap  gap-6">
                 {products?.slice(0, 6)?.map((product) => (
                   <Product key={product._id} {...product} />
                 ))}
@@ -54,5 +54,6 @@ const ProductItems = () => {
 };
 const ProductItemsContainer = styled.section`
   position: relative;
+  overflow-x: hidden;
 `;
 export default ProductItems;

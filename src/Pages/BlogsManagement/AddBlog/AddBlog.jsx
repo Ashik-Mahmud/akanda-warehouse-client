@@ -54,7 +54,7 @@ const AddBlog = () => {
         <form
           action=""
           onSubmit={handleAddBlogs}
-          className="form-wrapper my-6 p-8 bg-white shadow rounded"
+          className="form-wrapper my-6 p-5 sm:p-8 bg-white shadow rounded"
         >
           <div className="input-group flex flex-col gap-2">
             <label htmlFor="title">Title</label>

@@ -7,7 +7,7 @@ const BlogsManagement = () => {
   const location = useLocation();
 
   return (
-    <div className="p-10">
+    <div className="sm:p-10">
       <div className="container mx-auto">
         <div className="text-center">
           <h2 className="text-2xl my-5">Management blogs</h2>

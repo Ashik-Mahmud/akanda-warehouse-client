@@ -7,6 +7,9 @@ import useFirebase from './Hooks/useFirebase';
 import { AddProduct } from './Pages/AddProduct/AddProduct';
 import BlogDetails from './Pages/BlogDetails/BlogDetails';
 import Blogs from './Pages/Blogs/Blogs';
+import AddBlog from './Pages/BlogsManagement/AddBlog/AddBlog';
+import BlogsManagement from './Pages/BlogsManagement/BlogsManagement';
+import ManageBlog from './Pages/BlogsManagement/ManageBlog/ManageBlog';
 import Home from './Pages/Home/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login/Login';
@@ -42,6 +45,11 @@ function App() {
         <Route path='/inventory/:inventoryId' element={<RequireAuth><Inventory /></RequireAuth>} />
         <Route path='/add-product' element={<RequireAuth><AddProduct /></RequireAuth>} />
         <Route path='/edit-product/:productId' element={<RequireAuth><EditProduct /></RequireAuth>} />
+        <Route path='/management-blogs' element={<RequireAuth><BlogsManagement /></RequireAuth>} >
+            <Route  index element={<AddBlog />} />
+            <Route path='add-blog' element={<AddBlog />} />
+            <Route path='manage-blog' element={<ManageBlog />} />
+        </Route>
 
 
         {/* not found route  */}

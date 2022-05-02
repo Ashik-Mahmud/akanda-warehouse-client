@@ -1,8 +1,11 @@
 import React from "react";
 import { BsPlus } from "react-icons/bs";
 import { Fade } from "react-reveal";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../Firebase/Firebase.config";
 import Blog from "./Blog/Blog";
 const Blogs = () => {
+  const navigate = useNavigate();
   return (
     <section className="blogs p-0 md:p-10">
       <div className="container">
@@ -12,10 +15,15 @@ const Blogs = () => {
               <span>read more articles and make your knowledge wide</span>
               <h2 className="text-2xl font-semibold">Read Articles</h2>
             </div>
-            <button className="flex gap-1 p-3 items-center bg-sky-500 rounded active:scale-95 transition-all text-white">
-              {" "}
-              <BsPlus className="text-white text-2xl" /> Add Blogs
-            </button>
+            {auth?.currentUser && (
+              <button
+                onClick={() => navigate(`/management-blogs`)}
+                className="flex gap-1 p-3 items-center bg-sky-500 rounded active:scale-95 transition-all text-white"
+              >
+                {" "}
+                <BsPlus className="text-white text-2xl" /> Add Blogs
+              </button>
+            )}
           </div>
         </Fade>
         <Fade bottom distance="40px">

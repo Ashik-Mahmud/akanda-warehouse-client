@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { BsGrid } from "react-icons/bs";
 import { FaWarehouse } from "react-icons/fa";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../../App";
@@ -56,6 +56,19 @@ const Header = () => {
                     <NavLink className="text-lg" to="/add-product">
                       Add Product
                     </NavLink>
+                  </li>
+                  <li className="submenu relative">
+                    <Link className="text-lg flex items-center gap-2" to="#">
+                      More.. <MdOutlineKeyboardArrowDown className="text-lg" />
+                    </Link>
+                    <ul className="p-4 shadow rounded -left-10 top-8 w-52">
+                      <li className="my-2">
+                        <Link to="/">Add Blog</Link>
+                      </li>
+                      <li className="my-2">
+                        <Link to="/">Blog Management</Link>
+                      </li>
+                    </ul>
                   </li>
                 </>
               )}
@@ -130,6 +143,24 @@ const HeaderContainer = styled.header`
   position: relative;
   a.active {
     color: var(--primary-color);
+  }
+  .submenu {
+    position: relative;
+
+    ul {
+      position: absolute !important;
+      background: #fff;
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: all 0.5s ease;
+    }
+    &:hover ul {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0px);
+    }
   }
   .primary-menu {
     position: relative;

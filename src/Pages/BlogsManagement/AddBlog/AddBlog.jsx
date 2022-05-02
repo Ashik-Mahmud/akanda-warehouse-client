@@ -28,6 +28,7 @@ const AddBlog = () => {
         email: auth?.currentUser?.email,
         uid: auth?.currentUser?.uid,
       },
+      date: new Date().toDateString(),
     };
     await axios
       .post(`http://localhost:5000/blogs`, {
@@ -35,13 +36,14 @@ const AddBlog = () => {
         authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       })
       .then((res) => {
-        console.log(res.data);
+        if (res.data.success) {
+          toast.success(res.data.message);
+        }
+        event.target.reset();
       })
       .catch((err) => {
         console.log(err);
       });
-
-    console.log(blogData);
   };
 
   return (

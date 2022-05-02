@@ -12,9 +12,9 @@ const useFirebase = () => {
     await signInWithPopup(auth, provider)
       .then((res) => {
         setUser(res);
-        setLoading(true);
         toast.success("Sign In successfully done.");
         Token(auth?.currentUser?.uid);
+        setLoading(true);
       })
       .catch((err) => {
         toast.error(err.message.split(":")[1]);

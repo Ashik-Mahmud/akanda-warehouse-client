@@ -35,6 +35,7 @@ const Inventory = () => {
         isDelivery={isDelivery}
         setStock={setStock}
         stock={stock}
+        productName={currentProduct?.name}
       />
       <div className="container">
         {loading ? (

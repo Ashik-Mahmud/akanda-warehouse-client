@@ -10,6 +10,7 @@ const Modal = ({
   inventoryId,
   setStock,
   stock,
+  productName,
 }) => {
   const formRef = useRef(null);
   const [delivery, setDelivery] = useState(0);
@@ -77,6 +78,9 @@ const Modal = ({
       ></div>
       <div className="card sm:w-96 p-10 bg-gray-50 z-50">
         <div className="card-header">
+          <h4>
+            I <span className="text-sky-500">{productName}</span>
+          </h4>
           <h3 className="text-2xl font-semibold">
             {isDelivery ? "Delivery Product" : "Update Stock"}
           </h3>

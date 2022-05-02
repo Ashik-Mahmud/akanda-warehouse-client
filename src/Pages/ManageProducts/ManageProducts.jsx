@@ -71,7 +71,7 @@ const ManageProducts = () => {
             className="flex gap-1 p-3 items-center bg-sky-500 rounded active:scale-95 transition-all text-white"
           >
             {" "}
-            <BsPlus className="text-white text-2xl" /> Add Product
+            <BsPlus className="text-white text-2xl" /> Add New Product
           </button>
         </div>
         <div className="table-wrapper bg-white p-10 border shadow-sm rounded overflow-auto">

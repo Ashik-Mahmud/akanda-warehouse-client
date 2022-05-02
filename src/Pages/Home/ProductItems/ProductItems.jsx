@@ -45,7 +45,7 @@ const ProductItems = () => {
             onClick={() => navigate(`/manage-products`)}
             className="active:scale-95 transition-all text-white my-3 justify-center text-center flex items-center gap-2 bg-sky-500 px-5 py-2 rounded"
           >
-            All Inventories Product <BsBoxArrowDownRight />
+            Manage Inventories <BsBoxArrowDownRight />
           </button>
         </div>
       </div>

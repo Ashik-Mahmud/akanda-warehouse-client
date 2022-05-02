@@ -65,7 +65,7 @@ const Header = () => {
                   </li>
                   <li className="submenu relative">
                     <Link className="text-lg flex items-center gap-2" to="#">
-                      More.. <MdOutlineKeyboardArrowDown className="text-lg" />
+                      More <MdOutlineKeyboardArrowDown className="text-lg" />
                     </Link>
                     <ul className="p-4 shadow rounded -left-10 top-8 w-52">
                       <li className="my-2">

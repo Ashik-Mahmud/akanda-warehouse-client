@@ -2,10 +2,14 @@ import React from "react";
 import { BsPlus } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
+import useBlogs from "../../Hooks/useBlogs";
 import Blog from "./Blog/Blog";
 const Blogs = () => {
   const navigate = useNavigate();
+  const { blogs, loading } = useBlogs();
+  console.log(blogs);
   return (
     <section className="blogs p-0 md:p-10">
       <div className="container">
@@ -27,12 +31,19 @@ const Blogs = () => {
           </div>
         </Fade>
         <Fade bottom distance="40px">
-          <div className="blogs-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-5 md:p-10 rounded bg-white shadow border">
-            <Blog />
-            <Blog />
-            <Blog />
-            <Blog />
-          </div>
+          {loading ? (
+            blogs.length > 0 ? (
+              <div className="blogs-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 p-5 md:p-10 rounded bg-white shadow border">
+                {blogs.map((blog) => (
+                  <Blog key={blog._id} {...blog} />
+                ))}
+              </div>
+            ) : (
+              "No blog found yet."
+            )
+          ) : (
+            <Loader />
+          )}
         </Fade>
       </div>
     </section>

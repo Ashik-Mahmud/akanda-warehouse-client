@@ -20,7 +20,20 @@ const useCurrentUserProduct = () => {
           setCurrentUserProduct(res.data.result);
         })
         .catch((err) => {
-          console.log(err);
+          /* 
+          if (err.response.status === 403) {
+            signOut(auth).then(() => {
+              toast.success("Sign Out successfully done.");
+              toast.error(`Forbidden Access & Request.`);
+              sessionStorage.clear();
+            });
+          } else if (err.response.status === 401) {
+            signOut(auth).then(() => {
+              toast.success("Sign Out successfully done.");
+              toast.error("Unauthorized Users");
+              sessionStorage.clear();
+            });
+          } */
         });
     })();
   }, []);

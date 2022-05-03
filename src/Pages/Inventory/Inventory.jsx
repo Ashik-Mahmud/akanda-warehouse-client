@@ -90,6 +90,12 @@ const Inventory = () => {
                     </span>
                   </li>
                   <li>
+                    Brand -{" "}
+                    <span className="text-sky-500">
+                      {currentProduct?.Brand}
+                    </span>
+                  </li>
+                  <li>
                     Total Stock -{" "}
                     <span
                       className={`${

@@ -7,13 +7,11 @@ import Swal from "sweetalert2";
 import Loader from "../../Components/Loader/Loader";
 import { auth } from "../../Firebase/Firebase.config";
 import useCurrentUserProduct from "../../Hooks/useCurrentUserProduct";
-import useProducts from "../../Hooks/useProducts";
 import useTitle from "../../Hooks/useTitle";
 import Item from "./Item/Item";
 const MyItems = () => {
   useTitle("My items");
   const navigate = useNavigate();
-  const { products } = useProducts();
   const { currentUserProduct, loading, setCurrentUserProduct } =
     useCurrentUserProduct();
   const [search, setSearch] = useState("");

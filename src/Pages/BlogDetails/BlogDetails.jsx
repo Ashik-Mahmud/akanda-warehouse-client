@@ -12,9 +12,9 @@ const BlogDetails = () => {
   useTitle(currentBlog?.title || "loading...");
 
   return (
-    <div className="p-10">
+    <div className="p-5 sm:p-10">
       <div className="container">
-        <div className="card shadow p-8">
+        <div className="card shadow p-3 sm:p-8">
           {loading ? (
             <>
               <div className="card-header pb-4 flex items-center gap-2">
@@ -33,7 +33,7 @@ const BlogDetails = () => {
                   />
                 </div>
                 <div className="details">
-                  <ul className="meta flex justify-between items-center my-4">
+                  <ul className="meta flex flex-wrap justify-between items-center my-4">
                     <li>
                       Author -{" "}
                       <span className="text-sky-500">

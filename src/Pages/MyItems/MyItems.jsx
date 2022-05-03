@@ -42,7 +42,7 @@ const MyItems = () => {
           )
           .then((res) => {
             Swal.fire("Deleted!", `${res.data.message}`, "success");
-            const restProducts = products.filter(
+            const restProducts = currentUserProduct.filter(
               (product) => product._id !== id
             );
             setCurrentUserProduct(restProducts);

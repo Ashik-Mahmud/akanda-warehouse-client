@@ -105,7 +105,7 @@ const HeroContainer = styled.section`
     width: 400px;
     height: 450px;
     @media (max-width: 650px) {
-      width: 290px;
+      width: 230px;
       height: auto;
       .swiper-slide {
         .image {

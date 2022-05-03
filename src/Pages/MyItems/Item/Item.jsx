@@ -13,7 +13,12 @@ const Item = ({
   return (
     <div className="shadow-sm rounded-md p-5 border mb-10 bg-white">
       <div className="image -mt-16 bg-white w-24 h-24 p-2 relative left-1/2 -translate-x-1/2 overflow-hidden border-gray-100 border rounded-full">
-        <img src={imageUrl} alt={name} width={120} className="w-full h-full" />
+        <img
+          src={imageUrl}
+          alt={name}
+          width={120}
+          className="w-full h-full object-contain"
+        />
       </div>
       <div className="details text-center">
         <span className="uppercase text-sm block mt-2 text-gray-400">

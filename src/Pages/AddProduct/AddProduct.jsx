@@ -77,7 +77,7 @@ export const AddProduct = () => {
     };
 
     await axios
-      .post(`https://akanda-warehouse-server.herokuapp.com/add-product`, {
+      .post(`http://localhost:5000/add-product`, {
         data: productData,
         authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       })

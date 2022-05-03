@@ -32,7 +32,7 @@ function App() {
             Token(auth?.currentUser?.uid)
         }
     }, [isAuth])
-   
+  
   return (
     <>
     <Toaster />
@@ -62,12 +62,12 @@ function App() {
         </Route>
         <Route path='/update-blog/:blogId' element={<RequireAuth><UpdateBlog /></RequireAuth>} />
         
-
+        
 
         {/* not found route  */}
         <Route path='*' element={<NotFound />} />
     </Routes>
-     <Footer />
+      <Footer />
      </AppContext.Provider>
     </>
   );

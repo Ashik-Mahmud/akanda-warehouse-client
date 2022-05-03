@@ -56,6 +56,6 @@ td {
   font-family: var(--poppins);
 }
 .container {
-  max-width: min(100% - 2rem, 1270px) !important;
+  max-width: min(100% - 2rem, 1370px) !important;
   margin-inline: auto !important;
 }

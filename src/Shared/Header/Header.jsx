@@ -26,7 +26,9 @@ const Header = () => {
         <nav className="flex justify-between ">
           <Link className="logo flex items-center gap-2" to="/">
             <FaWarehouse className="text-2xl text-sky-500 " />{" "}
-            <span className="text-2xl font-poppins">Akanda</span>
+            <span className="text-xl font-semibold l font-poppins uppercase">
+              Akanda
+            </span>
           </Link>
           <menu className="primary-menu flex items-center">
             <ul className={`flex items-center gap-8 ${menu ? "active" : ""}`}>
@@ -46,6 +48,14 @@ const Header = () => {
                   Blogs
                 </NavLink>
               </li>
+              {!isAuth && (
+                <li>
+                  <NavLink className="text-lg" to="/about">
+                    About
+                  </NavLink>
+                </li>
+              )}
+
               {isAuth && (
                 <>
                   <li>
@@ -75,6 +85,11 @@ const Header = () => {
                         <Link to="/management-blogs/manage-blog">
                           Blog Management
                         </Link>
+                      </li>
+                      <li>
+                        <NavLink className="text-lg" to="/about">
+                          About
+                        </NavLink>
                       </li>
                     </ul>
                   </li>

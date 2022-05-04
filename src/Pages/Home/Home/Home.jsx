@@ -2,6 +2,7 @@ import React from "react";
 import useTitle from "../../../Hooks/useTitle";
 import CallToAction from "../CallToAction/CallToAction";
 import Company from "../Company/Company";
+import Contact from "../Contact/Contact";
 import Hero from "../Hero/Hero";
 import ProductItems from "../ProductItems/ProductItems";
 import Reviews from "../Reviews/Reviews";
@@ -18,6 +19,7 @@ const Home = () => {
       <CallToAction />
       <Reviews />
       <Company />
+      <Contact />
     </section>
   );
 };
